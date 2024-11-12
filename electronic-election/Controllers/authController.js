@@ -1,6 +1,7 @@
 const { admin } = require('../Config/firebase');
 const bcrypt = require('bcryptjs');
 
+//register the user/voter
 async function registerUser(req, res) {
     const { email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -16,6 +17,7 @@ async function registerUser(req, res) {
     }
 }
 
+//user/voter login
 async function loginUser(req, res) {
     const { email, password } = req.body;
     const user = await admin.auth().getUserByEmail(email);
@@ -28,4 +30,4 @@ async function loginUser(req, res) {
     }
 }
 
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, loginUser};

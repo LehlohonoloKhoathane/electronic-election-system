@@ -36,8 +36,6 @@ firebase.initializeApp({
   projectId: process.env.FIREBASE_PROJECT_ID,
 });
 
-
-
 // Function to verify if the email is valid using MailCheck API
 async function verifyEmail(email) {
   const apiKey = process.env.MAILCHECK_API_KEY;

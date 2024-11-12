@@ -1,24 +1,11 @@
 // Import required libraries
 const axios = require('axios');
-const firebase = require('firebase/app');
-require('firebase/auth');
+//const firebase = require('firebase/app');
+//require('firebase/auth');
 const admin = require('firebase-admin');
-const { getAuth } = require('firebase-admin/auth');
+//const { getAuth } = require('firebase-admin/auth');
 
 require('dotenv').config(); // Load environment variables from .env
-
-// // Initialize Firebase Admin SDK
-// admin.initializeApp({
-//   credential: admin.credential.cert(require('../config/firebase-key.json')),
-// });
-
-// // Initialize Firebase client SDK (Make sure the configuration is correct)
-// firebase.initializeApp({
-//   apiKey: 'YOUR_FIREBASE_API_KEY',
-//   authDomain: 'YOUR_PROJECT_ID.firebaseapp.com',
-//   projectId: 'YOUR_PROJECT_ID',
-// });
-
 
 // Initialize Firebase Admin SDK using environment variables
 admin.initializeApp({
@@ -30,11 +17,11 @@ admin.initializeApp({
 });
 
 // Initialize Firebase client SDK using environment variables
-firebase.initializeApp({
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: `${process.env.FIREBASE_PROJECT_ID}.firebaseapp.com`,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-});
+// firebase.initializeApp({
+//   apiKey: process.env.FIREBASE_API_KEY,
+//   authDomain: `${process.env.FIREBASE_PROJECT_ID}.firebaseapp.com`,
+//   projectId: process.env.FIREBASE_PROJECT_ID,
+// });
 
 // Function to verify if the email is valid using MailCheck API
 async function verifyEmail(email) {

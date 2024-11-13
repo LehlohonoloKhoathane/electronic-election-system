@@ -1,0 +1,31 @@
+/* General footer styling */
+footer {
+    background-color: #333; /* Dark background for contrast */
+    color: white; /* White text for readability */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some space around the text */
+    position: relative;
+    bottom: 0;
+    width: 96%;
+    font-size: 14px;
+    margin-top: 40px; /* Space above the footer */
+  }
+  
+  /* Styling for the copyright text */
+  footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #bbb; /* Light gray color for the text */
+  }
+  
+  /* Responsive design adjustments */
+  @media screen and (max-width: 768px) {
+    footer {
+      padding: 15px; /* Reduce padding on smaller screens */
+    }
+  
+    footer p {
+      font-size: 12px; /* Smaller text on mobile */
+    }
+  }
+  

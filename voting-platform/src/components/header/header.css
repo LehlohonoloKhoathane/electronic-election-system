@@ -1,9 +1,9 @@
 /* Header container styling */
-header {
+.heading{
     background-color: #333;
     padding: 10px 20px;
     position: fixed; /* Makes the header fixed at the top */
-    width: 100%; /* Ensures the header spans the entire width */
+    width: 96%; /* Ensures the header spans the entire width */
     top: 0; /* Aligns the header to the top of the page */
     left: 0;
     z-index: 1000; /* Keeps the header above other elements */

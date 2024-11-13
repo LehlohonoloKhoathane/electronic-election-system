@@ -1,0 +1,61 @@
+/* Styling for the Results section */
+#results {
+    padding: 30px 20px;
+    background-color: #f4f4f4; /* Light background color */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px; /* Space between header and results section */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto; /* Centers the section */
+  }
+  
+  /* Header styling for the Results section */
+  #results h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center; /* Centers the header */
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Container for the actual results */
+  #results-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center; /* Centers the content inside */
+    align-items: center;
+    height: 300px; /* Makes the container a fixed height */
+  }
+  
+  /* Styling for the placeholder text (Loading...) */
+  #results-container p {
+    font-size: 18px;
+    color: #888;
+    font-style: italic;
+  }
+  
+  /* Mobile responsiveness */
+  @media screen and (max-width: 768px) {
+    #results {
+      padding: 20px; /* Reduce padding on smaller screens */
+      margin-top: 20px; /* Reduce top margin */
+    }
+  
+    #results h2 {
+      font-size: 26px; /* Smaller font size for the header */
+      margin-bottom: 15px;
+    }
+  
+    #results-container {
+      height: 250px; /* Smaller container height on mobile */
+    }
+  
+    #results-container p {
+      font-size: 16px; /* Adjust font size for the placeholder */
+    }
+  }
+  

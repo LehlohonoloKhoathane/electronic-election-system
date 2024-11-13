@@ -1,3 +1,4 @@
+import './results.css';
 import React from 'react';
 
 function Results() {

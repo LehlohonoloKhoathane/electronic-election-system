@@ -6,7 +6,7 @@ footer {
     padding: 20px; /* Add some space around the text */
     position: relative;
     bottom: 0;
-    width: 96%;
+    width: 100%;
     font-size: 14px;
     margin-top: 40px; /* Space above the footer */
   }

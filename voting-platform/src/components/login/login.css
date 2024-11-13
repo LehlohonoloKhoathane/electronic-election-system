@@ -1,4 +1,8 @@
 /* General form styles */
+#login{
+    border: red 2px solid;
+}
+
 form {
     display: flex;
     flex-direction: column;

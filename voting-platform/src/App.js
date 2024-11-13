@@ -12,8 +12,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
         <Header />
+        {/* <header className="App-header"> */}
         <main>
           <Routes>
             <Route path="/results" element={<Results />} />
@@ -23,7 +23,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        </header>
+        {/* </header> */}
       </div>
     </Router>
   );

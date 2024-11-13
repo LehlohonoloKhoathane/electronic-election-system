@@ -1,11 +1,13 @@
 /* Styling for the Results section */
 #results {
+    border: red 2px solid;
     padding: 30px 20px;
     background-color: #f4f4f4; /* Light background color */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-top: 40px; /* Space between header and results section */
     width: 100%;
+    margin: 20px;
     margin-left: auto;
     margin-right: auto; /* Centers the section */
   }

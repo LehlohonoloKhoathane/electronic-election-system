@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Platform</title>
+</head>
+<body>
+    <div id="root"></div> <!-- React will render the app here -->
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Platform</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+    <script defer src="script.js"></script> <!-- Link to external JS -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Voting Platform</div>
+            <ul class="nav-links">
+                <li><a href="#results">Results</a></li>
+                <li><a href="#candidates">Candidates</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome">
+            <h1>Welcome to the Voting Platform</h1>
+            <p>View live voting results, explore candidates, and participate in the voting process by registering or logging in.</p>
+        </section>
+
+        <section id="results">
+            <h2>Live Voting Results</h2>
+            <div id="results-container">
+                <p>Loading results...</p> <!-- Placeholder for real-time data -->
+            </div>
+        </section>
+
+        <section id="candidates">
+            <h2>Meet the Candidates</h2>
+            <div id="candidates-container">
+                <!-- Candidate cards will be dynamically generated -->
+                <p>Loading candidate information...</p> <!-- Placeholder for candidate data -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Voting Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>

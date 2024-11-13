@@ -7,7 +7,6 @@
     top: 0; /* Aligns the header to the top of the page */
     left: 0;
     z-index: 1000; /* Keeps the header above other elements */
-    border: 2px solid red;
   }
   
   /* Navigation container */
@@ -33,7 +32,6 @@
     gap: 20px;
     margin: 0;
     margin-right: 5%;
-    border: 2px solid red;
   }
   
   /* Individual navigation link */

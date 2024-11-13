@@ -2,6 +2,12 @@
 header {
     background-color: #333;
     padding: 10px 20px;
+    position: fixed; /* Makes the header fixed at the top */
+    width: 100%; /* Ensures the header spans the entire width */
+    top: 0; /* Aligns the header to the top of the page */
+    left: 0;
+    z-index: 1000; /* Keeps the header above other elements */
+    border: 2px solid red;
   }
   
   /* Navigation container */
@@ -9,6 +15,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px; /* Adds space between the header and the logo */
   }
   
   /* Logo styling */
@@ -16,6 +23,7 @@ header {
     color: white;
     font-size: 24px;
     font-weight: bold;
+    margin-right: 30px; /* Creates space between the logo and the links */
   }
   
   /* Navigation links container */
@@ -24,6 +32,8 @@ header {
     display: flex;
     gap: 20px;
     margin: 0;
+    margin-right: 5%;
+    border: 2px solid red;
   }
   
   /* Individual navigation link */

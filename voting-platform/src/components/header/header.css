@@ -33,6 +33,19 @@
     margin: 0;
     margin-right: 5%;
   }
+
+  .nav-links .login{
+    border: 2px rgb(84, 108, 214) solid;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .nav-links .register{
+    border: 2px  rgb(84, 108, 214) solid;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(84, 108, 214);
+  }
   
   /* Individual navigation link */
   .nav-links li {

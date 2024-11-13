@@ -8,10 +8,10 @@ function Header() {
             <nav>
                 <div className="logo">Voting Platform</div>
                 <ul className="nav-links">
-                    <li><Link to="/results">Results</Link></li>
+                    <li><Link to="/results">View Results</Link></li>
                     <li><Link to="/candidates">Candidates</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register">Register</Link></li>
+                    <li><Link className='login' to="/login">Login</Link></li>
+                    <li className='register'><Link to="/register">Register as voter</Link></li>
                 </ul>
             </nav>
         </header>

@@ -1,13 +1,14 @@
 /* Styling for the Candidates section */
 #candidates {
+    border: 2px red solid;
     padding: 30px 20px;
     background-color: #fafafa; /* Light background color */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-top: 40px; /* Space between header and candidates section */
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto; /* Centers the section */
+    width: 100%;
+    /* margin-left: auto;
+    margin-right: auto; Centers the section */
   }
   
   /* Header styling for the Candidates section */

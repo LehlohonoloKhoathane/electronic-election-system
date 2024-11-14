@@ -1,19 +1,29 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import './login.css';
 import React, { useState } from 'react';
+import { auth } from '../firebase';
+import { toast } from 'react-toastify';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        // Simulate login logic (replace with actual authentication)
-        if (email === 'user@example.com' && password === 'password') {
-            alert('Login successful!');
-            // Redirect or handle post-login actions
-        } else {
-            setError('Invalid credentials, please try again.');
+        // user login authentication
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            console.log("User logged in Successfully");
+            window.location.href="../profile.js"
+            toast.success("User logged in Successfully",{
+                position: "top-center",
+            });
+        } catch (error) {
+            console.log(error.message);
+            toast.error(error.message, {
+                position: "bottom-center",
+            });
         }
     };
 

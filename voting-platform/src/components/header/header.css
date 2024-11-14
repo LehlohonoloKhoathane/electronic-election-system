@@ -1,16 +1,16 @@
 /* Header container styling */
 .heading{
-    background-color: #333;
+    background-color: #05052C;
     padding: 10px 20px;
-    position: fixed; /* Makes the header fixed at the top */
-    width: 100%; /* Ensures the header spans the entire width */
+    position: relative; /* Makes the header fixed at the top */
+    max-width: 100%; /* Ensures the header spans the entire width */
     top: 0; /* Aligns the header to the top of the page */
     left: 0;
-    z-index: 1000; /* Keeps the header above other elements */
+    z-index: 100; /* Keeps the header above other elements */
   }
   
   /* Navigation container */
-  nav {
+   .heading-navs {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,13 +18,13 @@
   }
   
   /* Logo styling */
-  .logo {
+   .logo {
     color: white;
     font-size: 24px;
     font-weight: bold;
-    margin-right: 30px; /* Creates space between the logo and the links */
+    margin-right: 30px; /* Creates space between the logo and the links*/
   }
-  
+ 
   /* Navigation links container */
   .nav-links {
     list-style: none;
@@ -35,28 +35,18 @@
   }
 
   .nav-links .login{
-    border: 2px rgb(84, 108, 214) solid;
     border-radius: 5px;
-    padding: 5px;
   }
 
   .nav-links .register{
-    border: 2px  rgb(84, 108, 214) solid;
     border-radius: 5px;
-    padding: 5px;
-    background-color: rgb(84, 108, 214);
   }
   
   /* Individual navigation link */
   .nav-links li {
-    font-size: 18px;
+    font-size: 20px;
   }
-  
-  /* Styling for login and register links (far right) */
-  .nav-links li:nth-child(3), .nav-links li:nth-child(4) {
-    margin-left: auto; /* Pushes login and register to the far right */
-  }
-  
+
   /* Styling for links */
   .nav-links a {
     color: white;
@@ -64,13 +54,64 @@
     transition: color 0.3s ease;
   }
   
-  .nav-links a:hover {
-    color: #ff6347; /* Change color on hover */
+   .nav-links a:hover {
+    color: #09BE67; /* Change color on hover */
   }
-  
+   
   /* Align 'Results' and 'Candidates' links near the center */
   .nav-links li:first-child,
   .nav-links li:nth-child(2) {
     margin-right: 20px;
   }
   
+  /* Responsive styles for small screens */
+@media (max-width: 768px) {
+  /* Adjust header container */
+  .heading {
+    padding: 10px 15px; /* Reduce padding */
+  }
+
+  /* Adjust navigation container */
+  .heading-navs {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  /* Adjust logo */
+  .logo {
+    font-size: 20px; /* Decrease font size */
+    margin-bottom: 10px; /* Add space between logo and links */
+  }
+
+  /* Adjust navigation links container */
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Reduce gap between links */
+    margin-right: 0; /* Remove margin on the right */
+  }
+
+  /* Adjust individual navigation link */
+  .nav-links li {
+    font-size: 18px; /* Decrease font size */
+  }
+
+  /* Ensure links wrap if needed */
+  .nav-links a {
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .logo {
+    font-size: 18px; /* Further reduce font size */
+  }
+
+  .nav-links li {
+    font-size: 16px; /* Reduce link font size */
+  }
+
+  .nav-links {
+    gap: 5px; /* Reduce gap even further */
+  }
+}

@@ -7,6 +7,9 @@ import Candidates from './components/candidates/candidates';
 import Footer from './components/footer/footer';
 import Register from './components/register/register';
 import Login from './components/login/login';
+import { ToastContainer } from 'react-toastify';
+import Profile from './components/profile/profile';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -20,7 +23,9 @@ function App() {
             <Route path="/candidates" element={<Candidates />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
+          <ToastContainer/>
         </main>
         <Footer />
         {/* </header> */}

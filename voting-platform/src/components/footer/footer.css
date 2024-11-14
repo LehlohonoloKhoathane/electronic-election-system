@@ -1,20 +1,20 @@
 /* General footer styling */
 footer {
-    background-color: #333; /* Dark background for contrast */
+    background-color: #05052C; /* Dark background for contrast */
     color: white; /* White text for readability */
     text-align: center; /* Center the text */
     padding: 20px; /* Add some space around the text */
     position: relative;
     bottom: 0;
-    width: 100%;
-    font-size: 14px;
-    margin-top: 40px; /* Space above the footer */
+    max-width: 100%;
+    font-size: 2rem;
+    margin-top: 1rem; /* Space above the footer */
   }
   
   /* Styling for the copyright text */
   footer p {
     margin: 0;
-    font-size: 14px;
+    font-size: 1rem;
     color: #bbb; /* Light gray color for the text */
   }
   
@@ -25,7 +25,7 @@ footer {
     }
   
     footer p {
-      font-size: 12px; /* Smaller text on mobile */
+      font-size: 1rem; /* Smaller text on mobile */
     }
   }
   

@@ -36,8 +36,8 @@
     transform: rotate(360deg);
   }
 } */
-.App {
+/* .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Make sure the App container takes the full viewport height */
-}
+  min-height: 100vh; /* Make sure the App container takes the full viewport height 
+} */

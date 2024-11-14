@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Header() {
     return (
         <header className='heading'>
-            <nav>
+            <nav className='heading-navs'>
                 <div className="logo">Voting Platform</div>
                 <ul className="nav-links">
                     <li><Link to="/results">View Results</Link></li>

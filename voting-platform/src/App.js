@@ -10,12 +10,15 @@ import Login from './components/login/login';
 import { ToastContainer } from 'react-toastify';
 import Profile from './components/profile/profile';
 import 'react-toastify/dist/ReactToastify.css';
+// import Home from './components/home/home';
 
 function App() {
   return (
     <Router>
+      {/* <Home/> */}
       <div className="App">
         <Header />
+        
         {/* <header className="App-header"> */}
         <main>
           <Routes>

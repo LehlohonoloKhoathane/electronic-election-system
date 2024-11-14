@@ -6,7 +6,7 @@ function Header() {
     return (
         <header className='heading'>
             <nav className='heading-navs'>
-                <div className="logo">Voting Platform</div>
+                <div className="logo">K-Votex Platform</div>
                 <ul className="nav-links">
                     <li><Link to="/results">View Results</Link></li>
                     <li><Link to="/candidates">Candidates</Link></li>

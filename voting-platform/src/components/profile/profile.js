@@ -22,6 +22,16 @@ function Profile () {
     useEffect(() => {
         fetchUserData();
     }, []);
+
+    async function handleLogout(){
+        try {
+            await auth.signOut();
+            window.location.href = '/login';
+            console.log("User logged out successfully");
+        } catch (error) {
+            console.error("Error logging out:", error.message);
+        }
+    }
     return(
         <div className='myProfile'>
             {userDetails ? (
@@ -32,7 +42,7 @@ function Profile () {
                         <p>Full Name: {userDetails.firstName}</p>
                         <p></p>
                     </div>
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary" onClick={handleLogout}>
                         Logout
                     </button>
                 </>

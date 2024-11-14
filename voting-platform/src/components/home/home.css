@@ -1,0 +1,142 @@
+ /* Styles for the home container  */
+ .home-container{
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 4rem;
+}
+
+.paragraph-container{
+    text-align: center;
+    margin-right: 20px;
+}
+
+ /* Styles for the home content  */
+.home-content{
+    flex: 1;
+}
+
+ /* Styles for the links container */
+.links-container{
+    text-align: center;
+}
+
+ /* Styles for the heading container */
+.heading-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin: 10px 60px;
+}
+
+ /* Styles for the heading content  */
+.heading-container h2{
+    font-size: 3rem;
+    color: #ffff;
+}
+
+/* Styles for the paragraph content  */
+.home-content p{
+    margin: 15px;
+    margin-left: 65px;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+ /* Styles for the home linkes */
+.home-content a{
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px; 
+    border: 2px solid #09BE67;
+    border-radius: 10px;
+    color: #ffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 50px;
+    cursor: pointer;
+}
+
+ /* Styles for the home links while hovering */
+.home-content a:hover{
+    background-color: #09BE67;
+    color: #ffff;
+    
+}
+
+ /* Styles for the horizontal ruler */
+hr{
+    border: 1px solid #09BE67;
+    margin: 10px auto;
+    width: 90% ;
+}
+
+body {
+    overflow-x: hidden; /* Prevent horizontal overflow for the entire document */
+}
+
+ /*Styles for the home sliding text container*/
+.slidingTextcontainer{
+    position: fixed;
+    font-size: 20vh;
+    color: #ffffff1f;
+    white-space: nowrap;
+    top: 250px;
+    width: 100%;
+    font-weight: bold;
+    z-index: -1; 
+}
+
+@media screen and (max-width: 1020px) {
+    .home-container{
+        margin: 0;
+    }
+}
+
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+
+    .home-container{
+        padding: 20px;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+    }
+    .slidingTextContainer {
+        font-size: 10vh; /* Adjust font size for smaller screens */
+    }
+
+    .heading-container{
+        margin: 0px;
+    }
+
+    .heading-container h2{
+        font-size: 25px;
+    }
+    
+    .paragraph-container{
+        margin: 0px;
+        text-align: center;
+    }
+
+    .home-content p{
+        font-size: 15px;
+        line-height: 18px;
+        margin-left: 10px;
+    }
+    .links-container{
+        flex-direction: row;
+        text-align: center;
+        margin: 5px;
+        gap: 5px;
+    }
+    .links-container a{
+        font-size: 15px;
+        margin: 5px 5px;
+    }
+} 

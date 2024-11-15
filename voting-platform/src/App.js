@@ -10,6 +10,7 @@ import Profile from './components/profile/profile';
 import Home from './components/home/home'; // Import Home component
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AddCandidates from './components/addCandidates/addCandidates';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} /> {/* Home as the landing page */}
             <Route path="/results" element={<Results />} />
+            <Route path="/addCandidates" element={<AddCandidates />} />
             <Route path="/candidates" element={<Candidates />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />

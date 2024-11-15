@@ -73,25 +73,30 @@
 // import React, { useState, useEffect } from 'react';
 // import { db } from "../firebase"; // Ensure firebase is correctly initialized
 // import { collection, getDocs } from 'firebase/firestore'; // Correct imports from Firestore SDK
-
+import React, { useEffect, useState } from 'react';
+import { auth, db } from '../firebase';
+import { useNavigate } from 'react-router-dom';
+import { collection, onSnapshot, doc, updateDoc, increment } from 'firebase/firestore';
 import './candidates.css';
-import React, { useState, useEffect } from 'react';
-import { auth, db } from "../firebase";
-import { collection, getDocs, doc, updateDoc, onSnapshot } from 'firebase/firestore';
-import { increment } from 'firebase/firestore';
 
 function Candidates() {
     const [candidates, setCandidates] = useState([]);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
+    const navigate = useNavigate();
 
-    // Fetch user authentication state
     useEffect(() => {
+        // Listen for authentication state changes
         const unsubscribeAuth = auth.onAuthStateChanged((currentUser) => {
-            setUser(currentUser);
+            if (currentUser) {
+                setUser(currentUser);
+            } else {
+                // Redirect to login page if user is not authenticated
+                navigate('/login');
+            }
         });
 
-        // Fetch real-time updates from Firestore for candidates
+        // Fetch real-time updates from Firestore
         const unsubscribeCandidates = onSnapshot(collection(db, 'Candidates'), (snapshot) => {
             const candidateList = snapshot.docs.map(doc => ({
                 id: doc.id,
@@ -105,9 +110,8 @@ function Candidates() {
             unsubscribeAuth();
             unsubscribeCandidates();
         };
-    }, []);
+    }, [navigate]);
 
-    // Function to handle voting
     const handleVote = async (candidateId) => {
         if (!user) {
             alert("Please log in to vote.");
@@ -115,14 +119,10 @@ function Candidates() {
         }
 
         try {
-            // Reference the candidate document
             const candidateRef = doc(db, 'Candidates', candidateId);
-
-            // Atomically increment the vote count
             await updateDoc(candidateRef, {
                 Votes: increment(1)
             });
-
             alert("Vote cast successfully!");
         } catch (error) {
             console.error("Error voting:", error);
@@ -143,6 +143,7 @@ function Candidates() {
                             <p>{candidate.Party}</p>
                             <p>{candidate.Description}</p>
                             <p>Votes: {candidate.Votes}</p>
+                            <button>View Manifesto</button>
                             <button onClick={() => handleVote(candidate.id)}>Vote</button>
                         </div>
                     ))

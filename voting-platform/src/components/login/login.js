@@ -3,22 +3,24 @@ import './login.css';
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate(); // useNavigate hook for navigation
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        // user login authentication
         try {
             await signInWithEmailAndPassword(auth, email, password);
             console.log("User logged in Successfully");
-            window.location.href="./profile"
-            toast.success("User logged in Successfully",{
+            toast.success("User logged in Successfully", {
                 position: "top-center",
             });
+            // Navigate to the candidates page after successful login
+            navigate('/candidates');
         } catch (error) {
             console.log(error.message);
             toast.error(error.message, {

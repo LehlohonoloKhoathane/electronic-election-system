@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import Header from './components/header/header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -7,31 +6,28 @@ import Candidates from './components/candidates/candidates';
 import Footer from './components/footer/footer';
 import Register from './components/register/register';
 import Login from './components/login/login';
-import { ToastContainer } from 'react-toastify';
 import Profile from './components/profile/profile';
+import Home from './components/home/home'; // Import Home component
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Home from './components/home/home';
 
 function App() {
   return (
     <Router>
-      {/* <Home/> */}
       <div className="App">
         <Header />
-        
-        {/* <header className="App-header"> */}
         <main>
           <Routes>
+            <Route path="/" element={<Home />} /> {/* Home as the landing page */}
             <Route path="/results" element={<Results />} />
             <Route path="/candidates" element={<Candidates />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
-          <ToastContainer/>
+          <ToastContainer />
         </main>
         <Footer />
-        {/* </header> */}
       </div>
     </Router>
   );

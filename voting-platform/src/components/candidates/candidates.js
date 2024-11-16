@@ -142,9 +142,11 @@ function Candidates() {
                             <h3>{candidate.FullNames}</h3>
                             <p>{candidate.Party}</p>
                             <p>{candidate.Description}</p>
-                            <p>Votes: {candidate.Votes}</p>
-                            <button>View Manifesto</button>
-                            <button onClick={() => handleVote(candidate.id)}>Vote</button>
+                            {/* <p>Votes: {candidate.Votes}</p> */}
+                            <div className='cButtons'>
+                                <button className='viewManifesto'>View Manifesto</button>
+                                <button className='voting' onClick={() => handleVote(candidate.id)}>Vote</button>
+                            </div>
                         </div>
                     ))
                 )}

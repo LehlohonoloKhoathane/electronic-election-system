@@ -92,6 +92,39 @@ body {
     z-index: -1; 
 }
 
+.candidates-container {
+    margin-top: 30px;
+  }
+  
+  .candidates-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .candidate-card {
+    padding: 20px;
+    border: 1px solid #09BE67;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #05052C;
+  }
+  
+  .candidate-card h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .candidate-card p {
+    font-size: 1.1em;
+    margin: 5px 0;
+  }
+  
+  .candidate-card strong {
+    font-weight: bold;
+  }
+  
+
 @media screen and (max-width: 1020px) {
     .home-container{
         margin: 0;

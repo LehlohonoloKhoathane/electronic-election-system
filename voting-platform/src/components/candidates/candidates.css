@@ -14,7 +14,7 @@
   /* Header styling for the Candidates section */
   #candidates h2 {
     font-size: 32px;
-    color: #333;
+    color: #09BE67;
     text-align: center; /* Centers the header */
     margin-bottom: 20px;
     font-weight: bold;
@@ -23,20 +23,54 @@
   /* Container for the candidate details */
   #candidates-container {
     padding: 20px;
-    background-color: rgb(75, 6, 6);
+    background-color: #05052C;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center; /* Centers the content inside */
     align-items: center;
-    height: 300px; /* Fixed container height for placeholder */
+    flex-wrap: wrap; /* Fixed container height for placeholder */
   }
   
   /* Styling for the placeholder text (Loading...) */
   #candidates-container p {
     font-size: 18px;
-    color: #888;
+    color: white;
     font-style: italic;
+  }
+
+  .candidate-card {
+    background-color: #101030;
+    border: 2px solid #09BE67; /* Green border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(9, 190, 103, 0.2), 0 8px 16px rgba(9, 190, 103, 0.3); /* Layered green shadow for depth */
+    margin: 0.5rem;
+    flex-wrap: wrap;
+    width: 20rem;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  }
+
+  .candidate-card h3{
+    color: white;
+  }
+
+  .cButtons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .cButtons button{
+    background-color: #05052C; /* Green background */
+    color: white; /* White text */
+    border: 2px solid #09BE67;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
   }
   
   /* Media Query for smaller screens */

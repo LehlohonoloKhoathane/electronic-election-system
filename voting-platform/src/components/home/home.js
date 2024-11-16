@@ -1,19 +1,6 @@
 import React from "react";
 import './home.css';
 
-//Function to handle the smooth scrolling
-// function handleScroll(event) {
-//     event.preventDefault();
-  
-//     const targetId = event.currentTarget.getAttribute("href");
-//     const targetElement = document.querySelector(targetId);
-  
-//     if (targetElement) {
-//       targetElement.scrollIntoView({ behavior: "smooth" });
-//     }
-// }
-
-/* Home section content */
 const Home = () => {
     return (
         <section className="home-container" id="home-container">

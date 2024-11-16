@@ -123,7 +123,84 @@ body {
   .candidate-card strong {
     font-weight: bold;
   }
+/*/////////////////////////////////////*/
+
+/* Modal background */
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the modal is on top */
+  }
   
+  /* Modal content */
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 80%;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Close button */
+  /* .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    background: ;
+    border: none;
+  }
+   */
+  /* Close button hover */
+  .close-btn:hover {
+    color: #f44336; /* Red color on hover */
+  }
+  
+  /* Buttons inside modal */
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px; /* Add gap between buttons */
+    align-items: center;
+  }
+  
+  /* Okay and Close button */
+  .okay-btn, .close-modal-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 45%; /* Ensure both buttons have the same width */
+  }
+  
+  .close-modal-btn {
+    background-color: #f44336; /* Red background for close button */
+  }
+  
+  .okay-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .close-modal-btn:hover {
+    background-color: #e53935; /* Darker red on hover */
+  }
+    
+
 
 @media screen and (max-width: 1020px) {
     .home-container{

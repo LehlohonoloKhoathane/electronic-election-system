@@ -1,22 +1,6 @@
-// import './results.css';
-// import React from 'react';
-
-// function Results() {
-//     return (
-//         <section id="results">
-//             <h2>Live Voting Results</h2>
-//             <div id="results-container">
-//                 <p>Loading results...</p> {/* Placeholder for real-time data */}
-//             </div>
-//         </section>
-//     );
-// }
-
-// export default Results;
-
 import './results.css';
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase'; // Import your Firestore instance
+import { db } from '../firebase'; // Importing firebase instance
 import { collection, getDocs } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
@@ -78,7 +62,7 @@ function Results() {
             <ul>
               {candidates.map(candidate => (
                 <li key={candidate.id}>
-                  <strong>{candidate.FullNames}</strong>: {candidate.Votes} votes
+                  <strong>{candidate.FullNames}</strong> Votes : {candidate.Votes}
                 </li>
               ))}
             </ul>

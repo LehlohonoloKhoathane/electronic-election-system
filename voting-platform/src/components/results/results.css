@@ -90,3 +90,13 @@
   background-color: #4caf50;
   border-radius: 5px 0 0 5px;
 }
+
+.provincial-results {
+  margin-top: 20px;
+  border: #4caf50 2px solid;
+  display: grid;
+}
+
+.provincial-results p {
+  margin: 5px 0;
+}

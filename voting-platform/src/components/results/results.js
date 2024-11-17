@@ -45,22 +45,22 @@ function Results() {
 
         // Group users by province and calculate voting percentages
         const provinceCounts = {
-          GP: { total: 0, voted: 0 },
-          FS: { total: 0, voted: 0 },
-          WC: { total: 0, voted: 0 },
-          NC: { total: 0, voted: 0 },
-          EC: { total: 0, voted: 0 },
-          KZN: { total: 0, voted: 0 },
-          NW: { total: 0, voted: 0 },
-          MP: { total: 0, voted: 0 },
-          L: { total: 0, voted: 0 },
+          'Gauteng': { total: 0, voted: 0 },
+          'Free State': { total: 0, voted: 0 },
+          'Western Cape': { total: 0, voted: 0 },
+          'Northern Cape': { total: 0, voted: 0 },
+          'Eastern Cape': { total: 0, voted: 0 },
+          'Kwazulu-Natal': { total: 0, voted: 0 },
+          'North West': { total: 0, voted: 0 },
+          'Mpumalanga': { total: 0, voted: 0 },
+          'Limpopo': { total: 0, voted: 0 },
         };
 
         usersData.forEach(user => {
-          if (provinceCounts[user.province]) {
-            provinceCounts[user.province].total += 1;
+          if (provinceCounts[user.Province]) {
+            provinceCounts[user.Province].total += 1;
             if (user.Voted) {
-              provinceCounts[user.province].voted += 1;
+              provinceCounts[user.Province].voted += 1;
             }
           }
         });

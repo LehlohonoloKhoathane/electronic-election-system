@@ -1,92 +1,87 @@
-/* General form styles */
+/* General styling for the register section */
+#register {
+    width: 100%;
+    max-width: 1100px; /* Sets the maximum width of the form */
+    margin: 3rem auto; /* Centers the form on the page */
+    padding: 2rem;
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+#register h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem; /* Adds space between heading and form */
+}
+
 form {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-form div {
-    margin-bottom: 15px;
+    gap: 1.5rem; /* Space between each form element */
 }
 
 label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+    font-size: 1rem;
+    color: #555; /* Darker color for labels */
+    margin-bottom: 0.5rem;
 }
 
-input {
-    padding: 10px;
-    font-size: 16px;
-    margin: 5px 0;
+input,
+select {
+    width: 100%;
+    padding: 0.75rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-input[type="submit"], button {
-    padding: 12px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-input[type="submit"]:hover, button:hover {
-    background-color: #45a049;
+input:focus,
+select:focus {
+    border-color: #007bff; /* Highlight color when focused */
 }
 
 button {
-    background-color: #007BFF;
+    padding: 0.75rem;
+    background-color: #007bff; /* Button color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
 .error {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
+    color: #d9534f; /* Red color for error messages */
+    font-size: 0.875rem;
+    margin-top: -1rem; /* Moves error message closer to the input */
 }
 
-h2 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Center the login and register containers */
-section#login, section#register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-}
-
-section#login form, section#register form {
-    width: 100%;
-    max-width: 400px;
-}
-
-/* Responsive Design for smaller screens */
 @media (max-width: 600px) {
-    form {
-        padding: 15px;
+    #register {
+        padding: 1.5rem;
+        margin: 1rem;
     }
 
-    label, input {
-        font-size: 14px;
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    input,
+    select {
+        padding: 0.5rem;
     }
 }
+

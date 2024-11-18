@@ -170,7 +170,7 @@ function Register() {
         <section id="register">
             <h2>Register</h2>
             <form onSubmit={handleRegister}>
-                <div>
+                <div className='register'>
                     <label>Full Name:</label>
                     <input 
                         type="text" 

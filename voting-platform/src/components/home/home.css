@@ -2,8 +2,10 @@
  .home-container{
     padding: 20px;
     overflow: hidden;
-    position: relative;
     margin: 0 4rem;
+    background-color: #05052C;
+    max-width: fit-content;
+    border-radius: 5px;
 }
 
 .paragraph-container{
@@ -27,23 +29,25 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
-    margin: 10px 60px;
+    padding: 1rem;
+    margin: 1rem;
 }
 
  /* Styles for the heading content  */
 .heading-container h2{
     font-size: 3rem;
-    color: #1a1919;
+    color: #ffff;
+
 }
 
 /* Styles for the paragraph content  */
-.home-content p{
+.paragraph-container p{
     margin: 15px;
     margin-left: 65px;
     font-size: 2rem;
     font-weight: 400;
     line-height: 2rem;
+    color: #09BE67;
 }
 
  /* Styles for the home linkes */
@@ -94,36 +98,53 @@ body {
 
 .candidates-container {
     margin-top: 30px;
+    border: #09BE67 2px solid;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  .candidates-container hr{
+    width: 40%;
   }
   
+  .candidates-container h3{
+    color: #ffff;
+  }
+
   .candidates-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 15px;
   }
   
   .candidate-card {
     padding: 20px;
-    border: 1px solid #09BE67;
+    border: 2px solid #09BE67;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #05052C;
+    box-shadow: 0 2px 5px rgba(9, 102, 21, 0.616);
+    background-color: #0e0e38;
   }
   
   .candidate-card h4 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: #ffff;
   }
   
   .candidate-card p {
     font-size: 1.1em;
     margin: 5px 0;
+    color: #ffff;
   }
   
   .candidate-card strong {
     font-weight: bold;
+    color: #09BE67;
   }
 
+  .candidate-card button:hover{
+    background-color: #09BE67;
+  }
 /* Modal */
 .modal {
     position: fixed;
@@ -179,11 +200,11 @@ body {
   }
   
   .okay-btn:hover {
-    background-color: #45a049;
+    background-color: #13fc3a;
   }
   
   .close-modal-btn:hover {
-    background-color: #e53935; /* Darker red on hover */
+    background-color: #ff1a0a; /* Darker red on hover */
   }
     
 

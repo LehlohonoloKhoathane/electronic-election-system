@@ -73,7 +73,8 @@ const Home = () => {
 
         {/* Display Candidates */}
         <div className="candidates-container">
-          <h3>Our Candidates</h3>
+          <h3>Meet Our Candidates</h3>
+          <hr className="custom-hr" />
           {candidates.length > 0 ? (
             <div className="candidates-list">
               {candidates.map((candidate) => (

@@ -1,96 +1,79 @@
-/* General form styles */
-#login{
-    border: red 2px solid;
+.login-container {
+    border: #09BE67 2px solid;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #05052C;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(8, 131, 29, 0.664);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-size: 40px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-form div {
-    margin-bottom: 15px;
-}
-
-label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+    gap: 1rem;
 }
 
 input {
-    padding: 10px;
-    font-size: 16px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
+    padding: 0.75rem;
+    /* border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s; */
 }
 
-input[type="submit"], button {
-    padding: 12px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
+input:focus {
+    border-color: #fff;
 }
 
-input[type="submit"]:hover, button:hover {
-    background-color: #45a049;
-}
-
-button {
-    background-color: #007BFF;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.error {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-h2 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Center the login and register containers */
-section#login, section#register {
+.login-actions {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
-    padding: 20px;
+    margin-top: 1rem;
 }
 
-section#login form, section#register form {
-    width: 100%;
-    max-width: 400px;
+.login-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #09BE67;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
 }
 
-/* Responsive Design for smaller screens */
-@media (max-width: 600px) {
-    form {
-        padding: 15px;
-    }
+.login-button:hover {
+    background-color: #05052C;
+    border: #09BE67 2px solid;
+}
 
-    label, input {
-        font-size: 14px;
-    }
+.forgot-password-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+.password, .email {
+    background-color: #05052C;
+    width: 670px;
+    border: #09BE67 2px solid;
+    color: #fff;
+}
+.error-message {
+    color: #d9534f;
+    margin-top: 1rem;
 }

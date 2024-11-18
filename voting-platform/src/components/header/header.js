@@ -58,6 +58,7 @@ function Header() {
                         </>
                     ) : (
                         <>
+                            <li><Link to="/">Home</Link></li>
                             <li><Link to="/results">View Results</Link></li>
                             <li><Link className='login' to="/login">Login</Link></li>
                             <li className='register'><Link to="/register">Register as voter</Link></li>

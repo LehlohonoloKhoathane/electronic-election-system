@@ -170,18 +170,17 @@ function Register() {
         <section id="register">
             <h2>Register</h2>
             <form onSubmit={handleRegister}>
-                <div className='register'>
-                    <label>Full Name:</label>
+                <div>
                     <input 
                         type="text" 
                         value={fname} 
+                        
                         placeholder='Full Names'
                         onChange={(e) => setName(e.target.value)} 
                         required
                     />
                 </div>
                 <div>
-                    <label>ID Number:</label>
                     <input 
                         type="number" 
                         value={IDNumber} 
@@ -195,7 +194,6 @@ function Register() {
                     {idError && <p className="error">{idError}</p>}
                 </div>
                 <div>
-                    <label>Email:</label>
                     <input 
                         type="email" 
                         value={email}
@@ -209,7 +207,6 @@ function Register() {
                     {emailError && <p className="error">{emailError}</p>}
                 </div>
                 <div>
-                    <label>Password:</label>
                     <input 
                         type="password" 
                         value={password}
@@ -219,7 +216,6 @@ function Register() {
                     />
                 </div>
                 <div>
-                    <label>Province:</label>
                     <select
                         value={province}
                         onChange={(e) => setProvince(e.target.value)}
@@ -234,7 +230,7 @@ function Register() {
                     </select>
                 </div>
                 {error && <p className="error">{error}</p>}
-                <button type="submit">Register</button>
+                <button className='register-button' type="submit">Register</button>
             </form>
         </section>
     );

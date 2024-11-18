@@ -46,6 +46,39 @@
   .nav-links li {
     font-size: 20px;
   }
+  /*==============================================*/
+  /* Style for the 'Hello {userName}' text */
+.nav-links li {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff; /* Dark color for better readability */
+  margin-right: 20px; /* Space between this and the next item */
+}
+
+.nav-links li span{
+  color: #09BE67;
+}
+
+/* Style for the Logout button */
+.logout-button {
+  background-color: #f44336; /* Red background for logout button */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Add some padding around the text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners for button */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Optionally, you can also style the <li> containing the Logout button if needed */
+.nav-links li.logout-item {
+  margin-left: 20px; /* Add space between other list items */
+}
+
 
   /* Styling for links */
   .nav-links a {

@@ -1,14 +1,14 @@
 import './header.css';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Add useNavigate import
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth, db } from '../firebase'; // Import Firestore
 import { doc, getDoc } from 'firebase/firestore';  // To fetch user data
 
 function Header() {
-    // Correct use of useState hook
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userName, setUserName] = useState('');
+    const navigate = useNavigate(); // Initialize navigate hook
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -39,6 +39,7 @@ function Header() {
             .then(() => {
                 setIsAuthenticated(false);
                 setUserName('');
+                navigate('/login'); // Redirect to the login page after logout
             })
             .catch((error) => {
                 console.error('Error signing out:', error);
@@ -52,8 +53,9 @@ function Header() {
                 <ul className="nav-links">
                     {isAuthenticated ? (
                         <>
-                            <li>Hello {userName}</li>
+                            <li><Link to="/candidates">Vote</Link></li>
                             <li><Link to="/results">View Results</Link></li>
+                            <li>Hello <span>{userName}</span></li>
                             <li><button onClick={handleLogout} className="logout-button">Logout</button></li>
                         </>
                     ) : (

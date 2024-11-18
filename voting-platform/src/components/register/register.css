@@ -1,50 +1,37 @@
 /* General styling for the register section */
 #register {
-    /* width: 100%; */
     border: #09BE67 2px solid;
-    max-width: 1100px; /* Sets the maximum width of the form */
+    max-width: 900px; /* Sets the maximum width of the form */
     margin: 3rem auto; /* Centers the form on the page */
     padding: 2rem;
     background-color: #05052C; /* White background for the form */
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Light shadow for depth */
+    box-shadow: 0 4px 8px rgba(2, 250, 56, 0.1); 
 }
 
 #register h2 {
     text-align: center;
     font-size: 2rem;
     color: #fff;
-    margin-bottom: 1.5rem; /* Adds space between heading and form */
+    margin-bottom: 1rem; /* Adds space between heading and form */
 }
 
-#register form{
+.FullNames, .IdNumber, .passwordR, .emailR{
     background-color: #05052C;
     border: #09BE67 2px solid;
-    width: 1000px;
+    width: 860px;
+    color: #fff;
+    border-radius: 5px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* Space between each form element */
-}
-
-label {
-    font-size: 1rem;
-    color: #555; /* Darker color for labels */
-    margin-bottom: 0.5rem;
-}
-
-input,
 select {
-    width: 100%;
+    width: 890px;
     padding: 0.75rem;
-    border: 1px solid #ccc;
+    background-color: #05052C;
+    border: #09BE67 2px solid;
     border-radius: 5px;
     font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-    
+    color: #fff;
 }
 
 select {
@@ -53,21 +40,24 @@ select {
 
 input:focus,
 select:focus {
+    border: #fff 2px solid;
     border-color: #09BE67; /* Highlight color when focused */
 }
 
 .register-button {
+    width: 890px;
     padding: 0.75rem;
     background-color: #09BE67; /* Button color */
     color: #fff; /* Button text color */
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s;
+   
 }
 
 .register-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #068547; /* Darker shade on hover */
+    border: #09BE67 2px solid;
 }
 
 .error {

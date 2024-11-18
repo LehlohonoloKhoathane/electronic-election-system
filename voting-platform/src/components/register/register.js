@@ -171,17 +171,16 @@ function Register() {
             <h2>Register</h2>
             <form onSubmit={handleRegister}>
                 <div>
-                    <input 
+                    <input className='FullNames'
                         type="text" 
                         value={fname} 
-                        
                         placeholder='Full Names'
                         onChange={(e) => setName(e.target.value)} 
                         required
                     />
                 </div>
                 <div>
-                    <input 
+                    <input className='IdNumber'
                         type="number" 
                         value={IDNumber} 
                         placeholder='ID Number'
@@ -194,7 +193,7 @@ function Register() {
                     {idError && <p className="error">{idError}</p>}
                 </div>
                 <div>
-                    <input 
+                    <input className='emailR'
                         type="email" 
                         value={email}
                         placeholder='Email address' 
@@ -207,7 +206,7 @@ function Register() {
                     {emailError && <p className="error">{emailError}</p>}
                 </div>
                 <div>
-                    <input 
+                    <input className='passwordR'
                         type="password" 
                         value={password}
                         placeholder='Password' 

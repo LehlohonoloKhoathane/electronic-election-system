@@ -86,6 +86,7 @@ function Results() {
   return (
     <section id="results">
       <h2>Live Voting Results</h2>
+      <hr className="custom-hr" />
       <div id="results-container">
         {candidates.length > 0 ? (
           <>
@@ -110,10 +111,11 @@ function Results() {
             <p><strong>Total Votes:</strong> {totalVotes}</p>
             <p><strong>Percentage of Users Voted:</strong> {totalUsers > 0 ? Math.round((votersCount / totalUsers) * 100) : 0}%</p>
 
-            <h3>Provincial Voting Results</h3>
+            <h3 className='provinceH'>Provincial Voting Results</h3>
+            <hr className="custom-hr" />
             <div className="provincial-results">
               {Object.entries(provincialData).map(([province, percentage]) => (
-                <p key={province}><strong>{province}:</strong> {percentage}% of users voted</p>
+                <p key={province}><strong>{province}:</strong> {percentage}% </p>
               ))}
             </div>
           </>

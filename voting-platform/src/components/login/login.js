@@ -86,7 +86,7 @@ function Login() {
                 />
                 {error && <p className="error">{error}</p>}
                 <button className='login-button' type="submit">Login</button>
-                <Link to="/forgot-password" className="forgot-password-link">
+                <Link to="/forgotPassword" className="forgot-password-link">
                     Forgot Password?
                 </Link>
             </form>

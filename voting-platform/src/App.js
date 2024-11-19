@@ -12,6 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddCandidates from './components/addCandidates/addCandidates';
 import AddElectionType from './components/addElectionTypes/addElectionTypes';
+import ForgotPassword from './components/forgotPassword/forgotPassword';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/candidates" element={<Candidates />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
           <ToastContainer />

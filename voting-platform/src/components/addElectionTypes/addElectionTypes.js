@@ -1,82 +1,21 @@
-// import React, { useState } from 'react';
-// import { db } from '../firebase';
-// import { collection, addDoc } from 'firebase/firestore';
-// import { toast } from 'react-toastify';
-// import './addElectionTypes.css';
-
-// function AddElectionType() {
-//   const [electionName, setElectionName] = useState('');
-//   const [electionEndDate, setElectionEndDate] = useState('');
-
-//   const handleAddElectionType = async (e) => {
-//     e.preventDefault();
-//     if (!electionName || !electionEndDate) {
-//       toast.error('Please provide an election name and set an end date');
-//       return;
-//     }
-
-//     try {
-//       await addDoc(collection(db, 'ElectionTypes'), {
-//         electionName: electionName,
-//         electionEndDate: electionEndDate
-//       });
-//       toast.success('Election type added successfully!');
-//       setElectionName('');
-//       setElectionEndDate('');
-//     } catch (error) {
-//       console.error('Error adding election type: ', error);
-//       toast.error('Failed to add election type');
-//     }
-//   };
-
-//   return (
-//     <div className="form-container">
-//       <h2>Add Election Type</h2>
-//       <form onSubmit={handleAddElectionType} className="election-form">
-//         <div className="form-group">
-//           <label>Election Name:</label>
-//           <input
-//             type="text"
-//             value={electionName}
-//             onChange={(e) => setElectionName(e.target.value)}
-//             required
-//             className="form-input"
-//           />
-//         </div>
-//         <div className="form-group">
-//           <label>Election End Date:</label>
-//           <input
-//             type="date"
-//             value={electionEndDate}
-//             onChange={(e) => setElectionEndDate(e.target.value)}
-//             required
-//             className="form-input"
-//           />
-//         </div>
-//         <button type="submit" className="submit-button">Add Election Type</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default AddElectionType;
-
-
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc, getDoc, doc } from 'firebase/firestore';
 import { auth } from '../firebase'; // Import Firebase auth
-import { onAuthStateChanged } from 'firebase/auth';
-import { toast } from 'react-toastify';
+import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import signOut
+import Swal from 'sweetalert2'; // Import SweetAlert2
 import './addElectionTypes.css';
 
 function AddElectionType() {
   const [electionName, setElectionName] = useState('');
   const [electionEndDate, setElectionEndDate] = useState('');
   const [isAdmin, setIsAdmin] = useState(false); // State to check if user is admin
+  const [isLoggingOut, setIsLoggingOut] = useState(false); // State to track logout
 
   // Check if user is logged in and has admin privileges
   useEffect(() => {
+    if (isLoggingOut) return; // Skip if logging out
+
     const checkUserStatus = async () => {
       onAuthStateChanged(auth, async (user) => {
         if (user) {
@@ -86,29 +25,72 @@ function AddElectionType() {
             if (userDoc.exists() && userDoc.data().role === 'admin') {
               setIsAdmin(true);
             } else {
-              toast.error('Access denied: Admins only');
+              Swal.fire({
+                icon: 'error',
+                title: 'Access Denied',
+                text: 'Admins only!',
+              });
             }
           } catch (error) {
             console.error('Error checking admin privileges:', error);
-            toast.error('Failed to verify admin privileges');
+            Swal.fire({
+              icon: 'error',
+              title: 'Verification Failed',
+              text: 'Failed to verify admin privileges.',
+            });
           }
-        } else {
-          toast.error('You must be logged in as an admin to add election types');
+        } else if (!isLoggingOut) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Authentication Required',
+            text: 'You must be logged in as an admin to add election types.',
+          });
         }
       });
     };
     checkUserStatus();
-  }, []);
+  }, [isLoggingOut]);
+
+  // Handle Logout
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await signOut(auth);
+      Swal.fire({
+        icon: 'success',
+        title: 'Logged Out',
+        text: 'You have been successfully logged out.',
+      });
+      setIsAdmin(false);
+    } catch (error) {
+      console.error('Error logging out:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Logout Failed',
+        text: 'Something went wrong. Please try again later.',
+      });
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
 
   const handleAddElectionType = async (e) => {
     e.preventDefault();
     if (!isAdmin) {
-      toast.error('Only admins can add election types');
+      Swal.fire({
+        icon: 'error',
+        title: 'Access Denied',
+        text: 'Only admins can add election types.',
+      });
       return;
     }
 
     if (!electionName || !electionEndDate) {
-      toast.error('Please provide an election name and set an end date');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Missing Information',
+        text: 'Please provide an election name and set an end date.',
+      });
       return;
     }
 
@@ -117,12 +99,20 @@ function AddElectionType() {
         electionName: electionName,
         electionEndDate: electionEndDate,
       });
-      toast.success('Election type added successfully!');
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Election type added successfully!',
+      });
       setElectionName('');
       setElectionEndDate('');
     } catch (error) {
       console.error('Error adding election type: ', error);
-      toast.error('Failed to add election type');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Failed to add election type. Please try again later.',
+      });
     }
   };
 
@@ -154,6 +144,9 @@ function AddElectionType() {
             </div>
             <button type="submit" className="submit-button">Add Election Type</button>
           </form>
+          <button onClick={handleLogout} className="logout-button">
+            Logout
+          </button>
         </>
       ) : (
         <p>You do not have the necessary permissions to access this page.</p>

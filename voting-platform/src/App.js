@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddCandidates from './components/addCandidates/addCandidates';
 import AddElectionType from './components/addElectionTypes/addElectionTypes';
 import ForgotPassword from './components/forgotPassword/forgotPassword';
+import AdminPage from './components/adminPage/adminPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/results" element={<Results />} />
             <Route path="/addElectionType" element={<AddElectionType />} />
             <Route path="/addCandidates" element={<AddCandidates />} />
+            <Route path="/adminPage" element={<AdminPage />} />
             <Route path="/candidates" element={<Candidates />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
@@ -33,7 +35,9 @@ function App() {
           </Routes>
           <ToastContainer />
         </main>
+        <footer className="footerApp">
         <Footer />
+      </footer>
       </div>
     </Router>
   );

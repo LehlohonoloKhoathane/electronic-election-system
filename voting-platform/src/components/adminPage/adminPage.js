@@ -16,13 +16,13 @@ function AdminPage() {
   return (
     <div className="admin-page">
       <h1>Admin Dashboard</h1>
-      <p>Welcome, Admin!</p>
+      <p>Welcome </p>
       <div className="admin-links">
-        <Link to="/add-election-type" className="admin-link">
+        <Link to="/addElectionType" className="admin-link">
           Add Election Type
         </Link>
-        <Link to="/other-admin-page" className="admin-link">
-          Other Admin Page
+        <Link to="/addCandidates" className="admin-link">
+          Add Candidates
         </Link>
         {/* Add more links to other admin pages as needed */}
       </div>

@@ -117,7 +117,7 @@ function AddElectionType() {
   };
 
   return (
-    <div className="form-container">
+    <div className="election-form-container">
       {isAdmin ? (
         <>
           <h2>Add Election Type</h2>

@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase'; // Import Firestore instance
 import { collection, getDocs, addDoc, doc, getDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'; // Import Firebase Auth
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2'; // Import Swal
 import './addCandidates.css';
 
 function AddCandidates() {
@@ -29,14 +28,22 @@ function AddCandidates() {
         }));
 
         if (elections.length === 0) {
-          toast.info('No election types available');
+          Swal.fire({
+            icon: 'info',
+            title: 'No election types available',
+            text: 'Please add election types before adding candidates.',
+          });
         }
 
         console.log('Fetched Elections: ', elections);
         setElectionTypes(elections);
       } catch (error) {
         console.error('Error fetching election types: ', error);
-        toast.error('Failed to load election types');
+        Swal.fire({
+          icon: 'error',
+          title: 'Failed to load election types',
+          text: 'Please try again later.',
+        });
       }
     };
 
@@ -59,14 +66,26 @@ function AddCandidates() {
             if (userData.role === 'admin') {
               setIsAdmin(true);
             } else {
-              toast.error('You do not have permission to add candidates.');
+              Swal.fire({
+                icon: 'error',
+                title: 'Permission Denied',
+                text: 'You do not have permission to add candidates.',
+              });
             }
           } else {
-            toast.error('User profile not found.');
+            Swal.fire({
+              icon: 'error',
+              title: 'User profile not found',
+              text: 'Please ensure you have a valid user profile.',
+            });
           }
         } catch (error) {
           console.error('Error checking user role: ', error);
-          toast.error('Error verifying user role');
+          Swal.fire({
+            icon: 'error',
+            title: 'Error verifying user role',
+            text: 'Please try again later.',
+          });
         }
       } else {
         setUser(null);
@@ -78,12 +97,20 @@ function AddCandidates() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedElection) {
-      toast.error('Please select an election');
+      Swal.fire({
+        icon: 'error',
+        title: 'Election Not Selected',
+        text: 'Please select an election.',
+      });
       return;
     }
 
     if (!isAdmin) {
-      toast.error('Only an admin can add candidates.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Permission Denied',
+        text: 'Only an admin can add candidates.',
+      });
       return;
     }
 
@@ -99,12 +126,20 @@ function AddCandidates() {
       });
 
       console.log('Candidate added with ID: ', candidateRef.id);
-      toast.success('Candidate added successfully!');
+      Swal.fire({
+        icon: 'success',
+        title: 'Candidate Added',
+        text: 'The candidate has been added successfully!',
+      });
       setCandidate({ FullNames: '', Description: '', Party: '', Manifesto: '' });
       setSelectedElection('');
     } catch (error) {
       console.error('Error adding candidate: ', error.message);
-      toast.error('Failed to add candidate: ' + error.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed to Add Candidate',
+        text: 'There was an error while adding the candidate. Please try again.',
+      });
     }
   };
 

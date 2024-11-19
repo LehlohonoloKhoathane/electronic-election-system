@@ -1,7 +1,16 @@
 .admin-page {
-    padding: 20px;
+    padding: 2rem;
     text-align: center;
-    background-color: #f7f7f7;
+    background-color: #05052C;
+    border: #09BE67 2px solid;
+    box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 2rem auto;
+  }
+
+  .admin-page h1{
+    color: #fff;
   }
   
   .admin-links {

@@ -1,0 +1,152 @@
+.election-form-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #05052C;
+    border: 2px solid #09BE67; /* Border with a bright green */
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322); /* Greenish shadow effect */
+    text-align: center;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .election-form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  
+  .election-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .form-group label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #f0f0f0;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #09BE67;
+    border-radius: 5px;
+    background-color: #1c1f3b;
+    color: #f0f0f0;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #ffffff;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #09BE67;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .submit-button:hover {
+    background-color: #07a35d;
+  }
+  
+  .logout-button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+  }
+  
+  .logout-button:hover {
+    background-color: #c82333;
+  }
+  
+  .election-form-container p {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    margin-top: 1.5rem;
+  }
+  
+  /* Media Queries for smaller screens */
+  @media (max-width: 768px) {
+    .election-form-container {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+  
+    .election-form-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    .submit-button, .logout-button {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  
+    .form-group label {
+      font-size: 1rem;
+    }
+  
+    .form-input {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    .election-form-container p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Media Queries for very small screens */
+  @media (max-width: 480px) {
+    .election-form-container {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
+  
+    .election-form-container h2 {
+      font-size: 1.25rem;
+    }
+  
+    .submit-button, .logout-button {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+    }
+  
+    .form-group label {
+      font-size: 0.9rem;
+    }
+  
+    .form-input {
+      font-size: 0.8rem;
+      padding: 6px;
+    }
+  
+    .election-form-container p {
+      font-size: 0.9rem;
+    }
+  }
+  

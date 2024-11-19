@@ -42,7 +42,7 @@ function Login() {
 
                 // Navigate based on the user's role
                 if (role === 'admin') {
-                    navigate('/addElectionType');  // Admin redirects to add candidates page
+                    navigate('/adminPage');  // Admin redirects to add candidates page
                 } else {
                     navigate('/candidates');  // Regular user redirects to candidates page
                 }

@@ -96,6 +96,14 @@ function Results() {
 
                 return (
                   <div key={candidate.id} className="candidate-card">
+                    {/* Render candidate image */}
+                    {candidate.Images && (
+                      <img
+                        src={candidate.Images}
+                        alt={candidate.FullNames}
+                        className="candidate-image"
+                      />
+                    )}
                     <h3>{candidate.FullNames}</h3>
                     <p><strong>Votes:</strong> {candidate.Votes} ({votePercentage}%)</p>
                     <div className="progress-bar-container">

@@ -64,11 +64,11 @@ const Home = () => {
       <div className="blur HomeBlur"></div>
       <div className="home-content">
         <div className="heading-container">
-          <h2>Welcome to K-Votex, your secure and trusted destination for casting your vote online.</h2>
+          <h2>K-Votex, your secure and trusted destination for casting your vote online.</h2>
         </div>
         <hr className="custom-hr" />
         <div className="paragraph-container">
-          <p>Experience a streamlined, user-friendly, and fully protected voting process from the comfort of your home. Your voice matters, and we've made it easier than ever to ensure it's heard. Participate, engage, and make a difference—anytime, anywhere. Start your journey now and be a part of the change!</p>
+          <p>Experience a streamlined, user-friendly, and fully protected voting process from the comfort of your home. Your voice matters!</p>
         </div>
 
         {/* Display Candidates */}
@@ -79,6 +79,8 @@ const Home = () => {
             <div className="candidates-list">
               {candidates.map((candidate) => (
                 <div key={candidate.id} className="candidate-card">
+                  {/* Add image here */}
+                  {candidate.Images && <img src={candidate.Images} alt={candidate.FullNames} className="candidate-image" />}
                   <h4>{candidate.FullNames}</h4>
                   <p><strong>Party:</strong> {candidate.Party}</p>
                   <p><strong>Description:</strong> {candidate.Description}</p>

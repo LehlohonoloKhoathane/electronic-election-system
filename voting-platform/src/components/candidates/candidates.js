@@ -133,9 +133,15 @@ function Candidates() {
                 ) : (
                     candidates.map(candidate => (
                         <div key={candidate.id} className="candidate-card">
+                            {candidate.Images && (
+                                <img src={candidate.Images} alt={`Pic of ${candidate.FullNames}`} className="candidate-image"/>
+                            )}
                             <h3>{candidate.FullNames}</h3>
                             <p>{candidate.Party}</p>
                             <p>{candidate.Description}</p>
+                            
+                            {/* Display the candidate's image */}
+                            
                             <div className='cButtons'>
                                 <button className='viewManifesto'>View Manifesto</button>
                                 <button

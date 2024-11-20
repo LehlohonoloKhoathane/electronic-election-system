@@ -72,6 +72,23 @@
     border-radius: 4px;
     transition: background-color 0.3s ease;
   }
+
+  .candidate-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center all content horizontally */
+    justify-content: center;  /* Center all content vertically (if needed) */
+    text-align: center;  /* Center the text inside the card */
+}
+
+.candidate-image {
+    width: 150px;  /* Adjust width as necessary */
+    height: auto;   /* Maintain aspect ratio */
+    border-radius: 50%;  /* Optional: Make the image round */
+    margin-top: 10px;  /* Add some space above the image */
+    margin-bottom: 15px;  /* Add some space below the image */
+}
+
   
   /* Media Query for smaller screens */
   @media screen and (max-width: 768px) {

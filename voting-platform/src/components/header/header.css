@@ -1,150 +1,119 @@
 /* Header container styling */
-.heading{
-    background-color: #05052C;
-    padding: 10px 20px;
-    position: relative; /* Makes the header fixed at the top */
-    max-width: 100%; /* Ensures the header spans the entire width */
-    top: 0; /* Aligns the header to the top of the page */
-    left: 0;
-    z-index: 100; /* Keeps the header above other elements */
-  }
-  
-  /* Navigation container */
-   .heading-navs {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px; /* Adds space between the header and the logo */
-  }
-  
-  /* Logo styling */
-   .logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 30px; /* Creates space between the logo and the links*/
-  }
- 
-  /* Navigation links container */
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    margin-right: 5%;
-  }
+.heading {
+  background-color: #05052C;
+  padding: 10px 20px;
+  position: relative;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
 
-  .nav-links .login{
-    border-radius: 5px;
-  }
+/* Navigation container */
+.heading-navs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
 
-  .nav-links .register{
-    border-radius: 5px;
-  }
-  
-  /* Individual navigation link */
-  .nav-links li {
-    font-size: 20px;
-  }
-  /*==============================================*/
-  /* Style for the 'Hello {userName}' text */
-.nav-links li {
-  font-size: 18px;
+/* Logo styling */
+.logo {
+  color: white;
+  font-size: 24px;
   font-weight: bold;
-  color: #fff; /* Dark color for better readability */
-  margin-right: 20px; /* Space between this and the next item */
+  margin-right: 30px;
 }
 
-.nav-links li span{
-  color: #09BE67;
+/* Navigation links container */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  margin-right: 5%;
 }
 
-/* Style for the Logout button */
-.logout-button {
-  background-color: #f44336; /* Red background for logout button */
-  color: white; /* White text color */
-  padding: 10px 20px; /* Add some padding around the text */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners for button */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+/* Styling for links */
+.nav-links a {
+  color: white;
+  text-decoration: none; /* Remove underline */
+  font-weight: normal; /* Normal weight for links */
+  transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth transition */
 }
 
-.logout-button:hover {
-  background-color: #d32f2f; /* Darker red on hover */
+/* Hover effects for links */
+.nav-links a:hover {
+  color: #09BE67; /* Change color to blue on hover */
+  font-weight: bold; /* Make the text bold on hover */
 }
 
-/* Optionally, you can also style the <li> containing the Logout button if needed */
-.nav-links li.logout-item {
-  margin-left: 20px; /* Add space between other list items */
+/* Hamburger menu */
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
 }
 
+/* Cancel icon to close the menu */
+.cancel-menu {
+  display: block;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 101; /* Ensure it's on top of the menu */
+}
 
-  /* Styling for links */
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-   .nav-links a:hover {
-    color: #09BE67; /* Change color on hover */
-  }
-   
-  /* Align 'Results' and 'Candidates' links near the center */
-  .nav-links li:first-child,
-  .nav-links li:nth-child(2) {
-    margin-right: 20px;
-  }
-  
-  /* Responsive styles for small screens */
+/* Show the cancel icon when the menu is open */
+
+/* Show the hamburger menu on small screens */
 @media (max-width: 768px) {
-  /* Adjust header container */
-  .heading {
-    padding: 10px 15px; /* Reduce padding */
+  .hamburger-menu {
+      display: block;
   }
 
-  /* Adjust navigation container */
-  .heading-navs {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the left */
+  .cancel-menu {
+    display: block;
   }
 
-  /* Adjust logo */
-  .logo {
-    font-size: 20px; /* Decrease font size */
-    margin-bottom: 10px; /* Add space between logo and links */
-  }
-
-  /* Adjust navigation links container */
   .nav-links {
-    flex-direction: column; /* Stack links vertically */
-    gap: 10px; /* Reduce gap between links */
-    margin-right: 0; /* Remove margin on the right */
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-right: 0;
+      padding: 10px;
+      background-color: #05052C;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
   }
 
-  /* Adjust individual navigation link */
+  .nav-links.active {
+      display: flex;
+  }
+
   .nav-links li {
-    font-size: 18px; /* Decrease font size */
-  }
-
-  /* Ensure links wrap if needed */
-  .nav-links a {
-    word-wrap: break-word;
+      font-size: 18px;
+      text-align: left;
   }
 }
 
+/* Responsive adjustments for very small screens */
 @media (max-width: 480px) {
-  /* Further adjustments for very small screens */
   .logo {
-    font-size: 18px; /* Further reduce font size */
+      font-size: 18px;
   }
 
   .nav-links li {
-    font-size: 16px; /* Reduce link font size */
+      font-size: 16px;
   }
 
   .nav-links {
-    gap: 5px; /* Reduce gap even further */
+      gap: 5px;
   }
 }

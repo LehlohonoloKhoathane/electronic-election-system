@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 import Swal from 'sweetalert2'; // Import Swal for notifications
-import './adminPage.css';
+import './userPage.css';
 
-function AdminPage() {
+function UserPage() {
   const handleLogout = () => {
     // Add your logout logic here (using Firebase auth signOut)
     Swal.fire({
@@ -18,25 +18,19 @@ function AdminPage() {
       <h1>Admin Dashboard</h1>
       <p>Welcome </p>
       <div className="admin-links">
-        <Link to="/addElectionType" className="admin-link">
-          Add Election Type
+        <Link to="/candidates" className="admin-link">
+          Vote
         </Link>
-        <Link to="/addCandidates" className="admin-link">
-          Add Candidates
+        <Link to="/results" className="admin-link">
+          View Results
         </Link>
-        <Link to="/manageDatabase" className="admin-link">
-          Manage Database
-        </Link>
-        <Link to="/electionTypeSelector" className="admin-link">
-          Manage Vote type
+        <Link to="/manageProfile" className="admin-link">
+          Manage Profile
         </Link>
         {/* Add more links to other admin pages as needed */}
       </div>
-      <button onClick={handleLogout} className="logout-button">
-        Logout
-      </button>
     </div>
   );
 }
 
-export default AdminPage;
+export default UserPage;

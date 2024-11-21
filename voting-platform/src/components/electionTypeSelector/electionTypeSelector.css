@@ -1,0 +1,118 @@
+/* Overall styling for the admin dashboard */
+.admin-dashboard {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f7fa;
+    color: #333;
+  }
+  
+  /* Title styling */
+  .admin-dashboard h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Section styling for election type selector */
+  .election-type-selector {
+    margin-bottom: 20px;
+  }
+  
+  .election-type-selector label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .election-type-selector select {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .election-type-selector select:hover {
+    border-color: #007bff;
+  }
+  
+  .election-type-selector select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Candidates list styling */
+  .candidates-list {
+    margin-top: 20px;
+  }
+  
+  .candidates-list h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  .candidates-list ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .candidates-list li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .candidates-list li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .candidates-list strong {
+    font-size: 1.2rem;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+  }
+  
+  /* No candidates found message */
+  p {
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 20px;
+  }
+  
+  /* Permission denied message */
+  p.permission-denied {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  

@@ -1,113 +1,137 @@
 /* Styling for the Candidates section */
 #candidates {
-    border: 2px red solid;
-    padding: 30px 20px;
-    background-color: #fafafa; /* Light background color */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 40px; /* Space between header and candidates section */
-    max-width: 100%;
-    /* margin-left: auto;
-    margin-right: auto; Centers the section */
-  }
-  
-  /* Header styling for the Candidates section */
-  #candidates h2 {
-    font-size: 32px;
-    color: #09BE67;
-    text-align: center; /* Centers the header */
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  /* Container for the candidate details */
-  #candidates-container {
-    padding: 20px;
-    background-color: #05052C;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center; /* Centers the content inside */
-    align-items: center;
-    flex-wrap: wrap; /* Fixed container height for placeholder */
-  }
-  
-  /* Styling for the placeholder text (Loading...) */
-  #candidates-container p {
-    font-size: 18px;
-    color: white;
-    font-style: italic;
-  }
+  border: 2px red solid;
+  padding: 20px 10px; /* Reduced padding for better responsiveness */
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto; /* Centered section with top and bottom margin */
+  max-width: 100%; /* Full width for responsiveness */
+}
 
-  .candidate-card {
-    background-color: #101030;
-    border: 2px solid #09BE67; /* Green border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(9, 190, 103, 0.2), 0 8px 16px rgba(9, 190, 103, 0.3); /* Layered green shadow for depth */
-    margin: 0.5rem;
-    flex-wrap: wrap;
-    width: 20rem;
-    padding: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-  }
+/* Header styling for the Candidates section */
+#candidates h2 {
+  font-size: 28px;
+  color: #09BE67;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
 
-  .candidate-card h3{
-    color: white;
-  }
+/* Container for the candidate details */
+#candidates-container {
+  padding: 15px;
+  background-color: #05052C;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-  .cButtons {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 15px;
-  }
+/* Styling for the placeholder text (Loading...) */
+#candidates-container p {
+  font-size: 16px;
+  color: white;
+  font-style: italic;
+}
 
-  .cButtons button{
-    background-color: #05052C; /* Green background */
-    color: white; /* White text */
-    border: 2px solid #09BE67;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
+.candidate-card {
+  background-color: #101030;
+  border: 2px solid #09BE67;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(9, 190, 103, 0.2), 0 8px 16px rgba(9, 190, 103, 0.3);
+  margin: 0.5rem;
+  width: 100%; /* Full width for smaller screens */
+  max-width: 300px; /* Restrict maximum width */
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-  .candidate-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* Center all content horizontally */
-    justify-content: center;  /* Center all content vertically (if needed) */
-    text-align: center;  /* Center the text inside the card */
+.candidate-card h3 {
+  color: white;
 }
 
 .candidate-image {
-    width: 150px;  /* Adjust width as necessary */
-    height: auto;   /* Maintain aspect ratio */
-    border-radius: 50%;  /* Optional: Make the image round */
-    margin-top: 10px;  /* Add some space above the image */
-    margin-bottom: 15px;  /* Add some space below the image */
+  width: 120px; /* Adjusted for smaller screens */
+  height: auto;
+  border-radius: 50%;
+  margin: 10px 0; /* Vertical spacing */
 }
 
-  
-  /* Media Query for smaller screens */
-  @media screen and (max-width: 768px) {
-    #candidates {
-      padding: 20px; /* Reduce padding on smaller screens */
-      margin-top: 20px; /* Reduce top margin */
-    }
-  
-    #candidates h2 {
-      font-size: 26px; /* Smaller font size for the header */
-      margin-bottom: 15px;
-    }
-  
-    #candidates-container {
-      height: 250px; /* Smaller container height on mobile */
-    }
-  
-    #candidates-container p {
-      font-size: 16px; /* Adjust font size for the placeholder */
-    }
+.cButtons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically on small screens */
+  gap: 10px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.cButtons button {
+  background-color: #05052C;
+  color: white;
+  border: 2px solid #09BE67;
+  padding: 10px 15px;
+  font-size: 14px; /* Adjust font size for small screens */
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+  #candidates {
+      padding: 15px; /* Reduced padding */
+      margin-top: 1rem;
   }
-  
+
+  #candidates h2 {
+      font-size: 24px; /* Smaller header font size */
+  }
+
+  .candidate-card {
+      margin: 1rem auto;
+      max-width: 90%; /* Adjust width for better fit */
+  }
+
+  .candidate-image {
+      width: 100px; /* Smaller image size */
+  }
+
+  .cButtons button {
+      font-size: 13px; /* Adjusted button font size */
+      padding: 8px 12px; /* Adjusted button padding */
+  }
+}
+
+/* Media Query for very small screens */
+@media screen and (max-width: 480px) {
+  #candidates {
+      padding: 10px;
+      margin-top: 0.5rem;
+  }
+
+  #candidates h2 {
+      font-size: 20px;
+  }
+
+  .candidate-card {
+      margin: 0.5rem auto;
+      max-width: 100%;
+  }
+
+  .candidate-image {
+      width: 80px; /* Smaller image size for very small screens */
+  }
+
+  .cButtons button {
+      font-size: 12px;
+      padding: 6px 10px;
+  }
+}

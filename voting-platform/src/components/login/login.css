@@ -1,152 +1,146 @@
 .login-container {
-    border: #09BE67 2px solid;
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #05052C;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
-    text-align: center;
-  }
-  
-  .login-container h2 {
-    margin-bottom: 1rem;
-    color: #ffffff;
-    font-size: 40px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  input {
-    padding: 0.75rem;
-    border: #09BE67 2px solid;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-  }
-  
-  input:focus {
-    border-color: #fff;
-  }
-  
-  .login-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
-  }
-  
-  .login-button {
-    padding: 0.75rem 1.5rem;
-    background-color: #09BE67;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-  }
-  
-  .login-button:hover {
-    background-color: #0e8a4e;
-  }
-  
-  .forgot-password-link {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 0.9rem;
-  }
-  
-  .forgot-password-link:hover {
-    text-decoration: underline;
-  }
-  
-  .password, .email {
-    background-color: #05052C;
-    width: 670px;
-    border: #09BE67 2px solid;
-    color: #fff;
-  }
-  
-  .error-message {
-    color: #d9534f;
-    margin-top: 1rem;
-  }
-  
-  /* Media Queries for smaller screens */
-  @media (max-width: 768px) {
-    .login-container {
+  border: #09BE67 2px solid;
+  max-width: 100%; /* Ensure the container is fully responsive */
+  margin-left: 6rem;
+  margin-top: 4rem;
+  margin-right: 6rem;
+  padding: 2rem;
+  background-color: #05052C;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-size: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  padding: 0.75rem;
+  border: #09BE67 2px solid;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%; /* Ensure input takes full width */
+  box-sizing: border-box; /* Prevents padding from affecting width */
+}
+
+input:focus {
+  border-color: #fff;
+}
+
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.login-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #09BE67;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0e8a4e;
+}
+
+.forgot-password-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.password, .email {
+  background-color: #05052C;
+  border: #09BE67 2px solid;
+  color: #fff;
+}
+
+.error-message {
+  color: #d9534f;
+  margin-top: 1rem;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+  .login-container {
       padding: 1.5rem;
       margin: 1rem;
-      max-width: 90%;
-    }
-  
-    .login-container h2 {
+      max-width: 90%; /* Ensure the container is responsive */
+  }
+
+  .login-container h2 {
       font-size: 2rem;
-    }
-  
-    .login-button {
+  }
+
+  .login-button {
       padding: 0.75rem 1.25rem;
       font-size: 1rem;
-    }
-  
-    input {
+  }
+
+  input {
       padding: 0.75rem;
       font-size: 0.9rem;
-    }
-  
-    .password, .email {
-      width: 100%;
-    }
-  
-    .login-actions {
+  }
+
+  .login-actions {
       flex-direction: column;
       align-items: flex-start;
-    }
-  
-    .forgot-password-link {
-      font-size: 0.8rem;
-    }
   }
-  
-  /* Media Queries for very small screens */
-  @media (max-width: 480px) {
-    .login-container {
+
+  .forgot-password-link {
+      font-size: 0.8rem;
+  }
+}
+
+/* Media Queries for very small screens */
+@media (max-width: 480px) {
+  .login-container {
       padding: 1rem;
       margin: 0.5rem;
       max-width: 100%;
-    }
-  
-    .login-container h2 {
+  }
+
+  .login-container h2 {
       font-size: 1.5rem;
-    }
-  
-    .login-button {
+  }
+
+  .login-button {
       padding: 0.5rem 1rem;
       font-size: 0.9rem;
-    }
-  
-    input {
+  }
+
+  input {
       padding: 0.6rem;
       font-size: 0.8rem;
-    }
-  
-    .password, .email {
-      width: 100%;
-    }
-  
-    .login-actions {
+  }
+
+  .login-actions {
       flex-direction: column;
       align-items: stretch;
-    }
-  
-    .forgot-password-link {
-      font-size: 0.7rem;
-    }
   }
-  
+
+  .forgot-password-link {
+      font-size: 0.7rem;
+  }
+}

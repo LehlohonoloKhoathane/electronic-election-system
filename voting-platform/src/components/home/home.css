@@ -1,261 +1,353 @@
- /* Styles for the home container  */
- .home-container{
-    padding: 20px;
-    overflow: hidden;
-    margin: 0 4rem;
-    background-color: #05052C;
-    max-width: fit-content;
-    border-radius: 10px;
+.home-container{
+  padding: 20px;
+  overflow: hidden;
+  margin: 4rem;
+  background-color: #05052C;
+  max-width: fit-content;
+  border-radius: 10px;
+  
 }
 
 .paragraph-container{
-    text-align: center;
-    margin-right: 20px;
+  text-align: center;
+  margin-right: 20px;
 }
 
- /* Styles for the home content  */
+/* Styles for the home content  */
 .home-content{
-    flex: 1;
+  flex: 1;
 }
 
- /* Styles for the links container */
+/* Styles for the links container */
 .links-container{
-    text-align: center;
+  text-align: center;
 }
 
- /* Styles for the heading container */
+/* Styles for the heading container */
 .heading-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem;
 }
 
- /* Styles for the heading content  */
+/* Styles for the heading content  */
 .heading-container h2{
-    font-size: 3rem;
-    color: #ffff;
+  font-size: 3rem;
+  color: #ffff;
 
 }
 
 /* Styles for the paragraph content  */
 .paragraph-container p{
-    margin: 15px;
-    margin-left: 65px;
-    font-size: 2rem;
-    font-weight: 400;
-    line-height: 2rem;
-    color: #09BE67;
+  margin: 15px;
+  margin-left: 65px;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: #09BE67;
 }
 
- /* Styles for the home linkes */
+/* Styles for the home linkes */
 .home-content a{
-    position: relative;
-    display: inline-block;
-    padding: 15px 30px; 
-    border: 2px solid #09BE67;
-    border-radius: 10px;
-    color: #ffff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 20px;
-    text-align: center;
-    margin: 20px 50px;
-    cursor: pointer;
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px; 
+  border: 2px solid #09BE67;
+  border-radius: 10px;
+  color: #ffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 50px;
+  cursor: pointer;
 }
 
- /* Styles for the home links while hovering */
+/* Styles for the home links while hovering */
 .home-content a:hover{
-    background-color: #09BE67;
-    color: #ffff;
-    
+  background-color: #09BE67;
+  color: #ffff;
+  
 }
 
- /* Styles for the horizontal ruler */
+/* Styles for the horizontal ruler */
 hr{
-    border: 1px solid #09BE67;
-    margin: 10px auto;
-    width: 90% ;
+  border: 1px solid #09BE67;
+  margin: 10px auto;
+  width: 90% ;
 }
 
 body {
-    overflow-x: hidden; /* Prevent horizontal overflow for the entire document */
+  overflow-x: hidden; /* Prevent horizontal overflow for the entire document */
 }
 
- /*Styles for the home sliding text container*/
+/*Styles for the home sliding text container*/
 .slidingTextcontainer{
-    position: fixed;
-    font-size: 20vh;
-    color: #ffffff1f;
-    white-space: nowrap;
-    top: 250px;
-    width: 100%;
-    font-weight: bold;
-    z-index: -1; 
+  position: fixed;
+  font-size: 20vh;
+  color: #ffffff1f;
+  white-space: nowrap;
+  top: 250px;
+  width: 100%;
+  font-weight: bold;
+  z-index: -1; 
 }
 
 .candidates-container {
-    margin-top: 30px;
-    border: #09BE67 2px solid;
-    box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
-    border-radius: 10px;
-    padding: 5px;
-  }
+  margin-top: 30px;
+  border: #09BE67 2px solid;
+  box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
+  border-radius: 10px;
+  margin: 4rem;
+  padding: 5px;
+}
 
-  .candidates-container hr{
-    width: 40%;
-  }
-  
-  .candidates-container h3{
-    color: #ffff;
-  }
+.candidates-container hr{
+  width: 40%;
+}
 
-  .candidates-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
+.candidates-container h3{
+  color: #ffff;
+}
+
+.candidates-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+}
+/*============================================*/
+
+.cButtons {
+  display: inline-flex;
+  justify-content: center; /* Centers buttons horizontally */
+  gap: 5px; /* Adds spacing between buttons */
+}
+
+.cButtons button {
+  padding: 10px 20px; /* Adjust padding for a better appearance */
+  font-size: 16px; /* Set a uniform font size */
+  cursor: pointer;
+}
+
+/* Ensure buttons remain stacked on smaller screens */
+@media (max-width: 768px) {
+  .cButtons {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .candidate-card {
+}
+
+
+/* .candidates-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.candidate-card {
+  width: 250px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+} */
+
+/*=============================================*/
+
+.candidate-card {
+  padding: 20px;
+  border: 2px solid #09BE67;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(9, 102, 21, 0.616);
+  background-color: #0e0e38;
+}
+
+.candidate-card h4 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #ffff;
+}
+
+.candidate-card p {
+  font-size: 1.1em;
+  margin: 5px 0;
+  color: #ffff;
+}
+
+.candidate-card strong {
+  font-weight: bold;
+  color: #ffff;
+}
+
+.candidate-card button:hover{
+  background-color: #09BE67;
+}
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal is on top */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 80%;
+  text-align: center;
+  position: relative;
+}
+
+/* Close button hover */
+.close-btn:hover {
+  color: #f44336; /* Red color on hover */
+}
+
+/* Buttons inside modal */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px; /* Add gap between buttons */
+  align-items: center;
+}
+
+/* Okay and Close button */
+.okay-btn, .close-modal-btn {
+  background-color: #4CAF50;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 45%; /* Ensure both buttons have the same width */
+}
+
+.close-modal-btn {
+  background-color: #f44336; /* Red background for close button */
+}
+
+.okay-btn:hover {
+  background-color: #13fc3a;
+}
+
+.close-modal-btn:hover {
+  background-color: #ff1a0a; /* Darker red on hover */
+}
+
+
+
+@media screen and (max-width: 1020px) {
+  .home-container{
+      margin: 0;
+  }
+}
+
+/* Media query for screens with a maximum width of 768px */
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+.home-container {
     padding: 20px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+}
+
+.slidingTextContainer {
+    font-size: 10vh; /* Adjust font size for smaller screens */
+}
+
+.heading-container {
+    margin: 0px;
+}
+
+.heading-container h2 {
+    font-size: 25px;
+}
+
+.paragraph-container {
+    margin: 0px;
+    text-align: center;
+}
+
+.home-content p {
+    font-size: 15px;
+    line-height: 18px;
+    margin-left: 10px;
+}
+
+.links-container {
+    flex-direction: row;
+    text-align: center;
+    margin: 5px;
+    gap: 5px;
+}
+
+.links-container a {
+    font-size: 15px;
+    margin: 5px 5px;
+}
+
+/* Adjust grid layout for candidate cards on small screens */
+.candidates-list {
+    display: grid;
+    grid-template-columns: 1fr; /* Two columns on smaller screens */
+    gap: 5px;
+}
+
+.candidate-card {
+    padding: 15px;
     border: 2px solid #09BE67;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(9, 102, 21, 0.616);
     background-color: #0e0e38;
-  }
-  
-  .candidate-card h4 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #ffff;
-  }
-  
-  .candidate-card p {
-    font-size: 1.1em;
-    margin: 5px 0;
-    color: #ffff;
-  }
-  
-  .candidate-card strong {
-    font-weight: bold;
-    color: #ffff;
-  }
-
-  .candidate-card button:hover{
-    background-color: #09BE67;
-  }
-/* Modal */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure the modal is on top */
-  }
-  
-  /* Modal content */
-  .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 80%;
-    text-align: center;
-    position: relative;
-  }
-  
-  /* Close button hover */
-  .close-btn:hover {
-    color: #f44336; /* Red color on hover */
-  }
-  
-  /* Buttons inside modal */
-  .modal-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    gap: 10px; /* Add gap between buttons */
-    align-items: center;
-  }
-  
-  /* Okay and Close button */
-  .okay-btn, .close-modal-btn {
-    background-color: #4CAF50;
-    border-radius: 10px;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 45%; /* Ensure both buttons have the same width */
-  }
-  
-  .close-modal-btn {
-    background-color: #f44336; /* Red background for close button */
-  }
-  
-  .okay-btn:hover {
-    background-color: #13fc3a;
-  }
-  
-  .close-modal-btn:hover {
-    background-color: #ff1a0a; /* Darker red on hover */
-  }
-    
-
-
-@media screen and (max-width: 1020px) {
-    .home-container{
-        margin: 0;
-    }
 }
 
-/* Media query for screens with a maximum width of 768px */
-@media (max-width: 768px) {
+.candidate-card h4 {
+    font-size: 1.2em; /* Slightly smaller font size for candidate names */
+    margin-bottom: 10px;
+    color: #ffff;
+}
 
-    .home-container{
-        padding: 20px;
-        overflow: hidden;
-        position: relative;
-        margin: 0;
-    }
-    .slidingTextContainer {
-        font-size: 10vh; /* Adjust font size for smaller screens */
-    }
+.candidate-card p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #ffff;
+}
 
-    .heading-container{
-        margin: 0px;
-    }
+.candidate-card strong {
+    font-weight: bold;
+    color: #ffff;
+}
 
-    .heading-container h2{
-        font-size: 25px;
-    }
-    
-    .paragraph-container{
-        margin: 0px;
-        text-align: center;
-    }
+/* Adjust the container styling to ensure cards fit well */
+.candidates-container {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 20px; /* Reduced margin for better fit */
+    border: #09BE67 2px solid;
+    box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
+    border-radius: 10px;
+    padding: 15px; /* Increased padding for better spacing */
+}
 
-    .home-content p{
-        font-size: 15px;
-        line-height: 18px;
-        margin-left: 10px;
-    }
-    .links-container{
-        flex-direction: row;
-        text-align: center;
-        margin: 5px;
-        gap: 5px;
-    }
-    .links-container a{
-        font-size: 15px;
-        margin: 5px 5px;
-    }
-} 
+.candidates-container hr {
+    width: 50%; /* Adjusted width for better alignment */
+}
+}

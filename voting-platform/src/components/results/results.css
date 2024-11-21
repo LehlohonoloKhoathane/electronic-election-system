@@ -3,10 +3,10 @@
   padding: 20px;
   background-color: #05052C;
   border-radius: 8px;
-  border: #4caf50 2px solid;
+  border: #f50800 2px solid;
   box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 1200px;
+  margin: 10px auto;
   font-family: 'Arial', sans-serif;
 }
 
@@ -17,7 +17,7 @@
   font-size: 28px;
 }
 
-#results hr{
+#results hr {
   width: 30rem;
 }
 
@@ -82,19 +82,35 @@
   margin: 0 0 10px;
 }
 
+/* Progress bar styles */
 .progress-bar-container {
   background-color: #e0e0e0;
   border-radius: 5px;
   overflow: hidden;
   margin-top: 10px;
+  width: 100%;
 }
 
 .progress-bar {
   height: 20px;
-  background-color: #4caf50;
   border-radius: 5px 0 0 5px;
+  transition: width 0.3s ease-in-out;
 }
 
+/* Dynamic colors for progress bars based on percentage */
+.progress-bar.low {
+  background-color: red;
+}
+
+.progress-bar.medium {
+  background-color: yellow;
+}
+
+.progress-bar.high {
+  background-color: green;
+}
+
+/* Provincial results header */
 .provinceH {
   color: #ffffff;
 }
@@ -115,7 +131,81 @@
   font-size: 1.2em; /* Optional: adjust font size */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
 }
+
 .provincial-results p {
   margin: 5px 0;
 }
 
+/* Media queries for responsiveness on smaller screens */
+
+/* For screens smaller than 768px (Tablets and Phones) */
+@media (max-width: 768px) {
+  #results {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  #results h2 {
+    font-size: 24px;
+  }
+
+  #results hr {
+    width: 100%; /* Make hr take full width on small screens */
+  }
+
+  /* Adjust grid layout for candidates */
+  .candidates-grid {
+    grid-template-columns: 1fr 1fr; /* Two columns on smaller screens */
+  }
+
+  .candidate-card {
+    padding: 12px; /* Reduced padding for small screens */
+  }
+
+  .progress-bar-container {
+    margin-top: 8px;
+  }
+
+  /* Adjust grid layout for provincial results */
+  .provincial-results {
+    grid-template-columns: 1fr 1fr; /* Two columns for small screens */
+  }
+
+  .result-item {
+    font-size: 1em; /* Reduce font size */
+    padding: 8px; /* Reduced padding */
+  }
+}
+
+/* For very small screens (Phones under 480px) */
+@media (max-width: 480px) {
+  #results {
+    padding: 8px;
+    margin: 10px;
+  }
+
+  #results h2 {
+    font-size: 20px;
+  }
+
+  .candidates-grid {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+  }
+
+  .candidate-card {
+    padding: 10px; /* Further reduced padding */
+  }
+
+  .progress-bar-container {
+    margin-top: 5px;
+  }
+
+  .provincial-results {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+  }
+
+  .result-item {
+    font-size: 0.9em; /* Even smaller font size */
+    padding: 6px; /* Further reduced padding */
+  }
+}

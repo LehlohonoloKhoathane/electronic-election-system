@@ -1,10 +1,10 @@
 /* General styling for the register section */
 #register {
     border: #09BE67 2px solid;
-    max-width: 900px; /* Sets the maximum width of the form */
-    margin: 3rem auto; /* Centers the form on the page */
+    max-width: 100%; /* Ensures the container is fully responsive */
+    margin: 3rem ; /* Centers the form on the page */
     padding: 2rem;
-    background-color: #05052C; /* White background for the form */
+    background-color: #05052C;
     border-radius: 10px;
     box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
 }
@@ -13,46 +13,65 @@
     text-align: center;
     font-size: 2rem;
     color: #fff;
-    margin-bottom: 1rem; /* Adds space between heading and form */
+    margin-bottom: 1rem;
 }
 
-.FullNames, .IdNumber, .passwordR, .emailR{
+.FullNames, .IdNumber, .passwordR, .emailR {
     background-color: #05052C;
     border: #09BE67 2px solid;
-    width: 860px;
+    width: 100%; /* Ensures input fields scale to container width */
+    max-width: 100%; /* Prevents overflow */
     color: #fff;
     border-radius: 5px;
+    padding: 0.75rem; /* Adds padding for better UX */
+    box-sizing: border-box; /* Includes padding/border in width */
 }
 
+
 select {
-    width: 890px;
-    padding: 0.75rem;
-    background-color: #05052C;
+    width: 100%; /* Ensures dropdown width matches the container */
+    max-width: 100%; /* Prevents overflow */
+    padding: 0.75rem; /* Adds adequate padding */
+    background-color: #05052C; /* Matches the form's background */
     border: #09BE67 2px solid;
     border-radius: 5px;
     font-size: 1rem;
     color: #fff;
-}
-
-select {
+    box-sizing: border-box; /* Ensures padding/border are included in width */
+    appearance: none; /* Removes default OS styles for dropdowns */
     cursor: pointer;
 }
+
+select:focus {
+    border-color: #09BE67; /* Highlighted border when focused */
+    outline: none; /* Removes default focus outline */
+}
+
+@media (max-width: 600px) {
+    select {
+        font-size: 0.9rem; /* Adjusts font size for smaller screens */
+        padding: 0.65rem; /* Reduces padding for better fit */
+    }
+}
+
 
 input:focus,
 select:focus {
-    border: #fff 2px solid;
     border-color: #09BE67; /* Highlight color when focused */
+    outline: none; /* Removes default outline */
 }
 
 .register-button {
-    width: 890px;
+    width: 100%; /* Makes button responsive */
+    max-width: 100%; /* Prevents overflow */
     padding: 0.75rem;
-    background-color: #09BE67; /* Button color */
-    color: #fff; /* Button text color */
+    background-color: #09BE67;
+    color: #fff;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-   
+    border: none; /* Removes default border */
+    transition: background-color 0.3s ease-in-out;
 }
 
 .register-button:hover {
@@ -63,9 +82,10 @@ select:focus {
 .error {
     color: #d9534f; /* Red color for error messages */
     font-size: 0.875rem;
-    margin-top: -1rem; /* Moves error message closer to the input */
+    margin-top: -1rem;
 }
 
+/* Media Queries for smaller screens */
 @media (max-width: 600px) {
     #register {
         padding: 1.5rem;
@@ -76,13 +96,12 @@ select:focus {
         font-size: 1.5rem;
     }
 
-    button {
+    input, select, .register-button {
         font-size: 1rem;
+        padding: 0.65rem; /* Adjusts padding for smaller screens */
     }
 
-    input,
-    select {
-        padding: 0.5rem;
+    .FullNames, .IdNumber, .passwordR, .emailR, select {
+        width: 100%; /* Ensures inputs and dropdowns fill the container */
     }
 }
-

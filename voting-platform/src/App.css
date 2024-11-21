@@ -42,6 +42,10 @@
   min-height: 100vh; /* Make sure the App container takes the full viewport height 
 } */
 
+body{
+  font-family: 'Arial', sans-serif;
+}
+
 .App {
   background-color: #05052C;
   min-height: 100vh;

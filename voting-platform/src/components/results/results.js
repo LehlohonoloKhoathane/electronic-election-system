@@ -83,6 +83,14 @@ function Results() {
     fetchUsersData();
   }, []);
 
+  // Function to determine the color of the progress bar based on percentage
+  const getProgressBarColor = (percentage) => {
+    if (percentage < 25) return 'red';
+    if (percentage >= 25 && percentage < 50) return 'yellow';
+    if (percentage >= 50 && percentage < 75) return 'green';
+    return 'blue'; // For percentage 75 and above
+  };
+
   return (
     <section id="results">
       <h2>Live Voting Results</h2>
@@ -93,6 +101,7 @@ function Results() {
             <div className="candidates-grid">
               {candidates.map(candidate => {
                 const votePercentage = totalVotes > 0 ? Math.round((candidate.Votes / totalVotes) * 100) : 0;
+                const progressBarColor = getProgressBarColor(votePercentage); // Get the color based on percentage
 
                 return (
                   <div key={candidate.id} className="candidate-card">
@@ -109,7 +118,10 @@ function Results() {
                     <div className="progress-bar-container">
                       <div
                         className="progress-bar"
-                        style={{ width: `${votePercentage}%` }}
+                        style={{ 
+                          width: `${votePercentage}%`,
+                          backgroundColor: progressBarColor // Apply dynamic color
+                        }}
                       ></div>
                     </div>
                   </div>

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
+import { TfiMenuAlt } from "react-icons/tfi";
 
 function Header() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -68,7 +69,7 @@ function Header() {
                 <div className="logo">K-Votex Platform</div>
                 {/* Hamburger icon for small screens */}
                 <div className="hamburger-menu" onClick={toggleMenu}>
-                    ☰
+                <TfiMenuAlt />
                 </div>
                 <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
                     {isAuthenticated ? (
@@ -81,7 +82,7 @@ function Header() {
                             <>
                                 <li><Link to="/userPage" onClick={closeMenu}>Dashboard</Link></li>
                                 <li><Link to="/results" onClick={closeMenu}>View Results</Link></li>
-                                <li>Hello <span>{userName}</span></li>
+                                {/* <li>Hello <span>{userName}</span></li> */}
                                 {/* <li><button onClick={handleLogout} className="logout-button">Logout</button></li> */}
                             </>
                         )

@@ -1,15 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import Swal from 'sweetalert2'; // Import Swal for notifications
-import { signOut } from 'firebase/auth'; // Import Firebase auth signOut method
-import { auth } from '../firebase'; // Import Firebase auth instance
+import { signOut, onAuthStateChanged } from 'firebase/auth'; // Import Firebase auth methods
+import { auth, db } from '../firebase'; // Import Firebase auth instance and Firestore database
+import { doc, getDoc } from 'firebase/firestore'; // Import Firestore methods
 import './userPage.css';
 
 function UserPage() {
   const navigate = useNavigate(); // Initialize the navigate hook
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Simulate authenticated state
-  const [userName, setUserName] = useState('John Doe'); // Simulate user info
-  const [userRole, setUserRole] = useState('Admin'); // Simulate user role
+  const [userName, setUserName] = useState(''); // State to hold user name
+  const [userRole, setUserRole] = useState(''); // State to hold user role
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // State to track if user is authenticated
+
+  // Get user details when the component mounts
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+        const fetchUserDetails = async () => {
+          try {
+            const userRef = doc(db, 'Users', user.uid); // Get user reference from Firestore
+            const userDoc = await getDoc(userRef); // Fetch user document from Firestore
+            if (userDoc.exists()) {
+              const userData = userDoc.data();
+              setUserName(userData.firstName || 'User'); // Set the user name
+              setUserRole(userData.role || 'user'); // Set the user role
+            }
+          } catch (error) {
+            console.error('Error fetching user details:', error);
+          }
+        };
+
+        fetchUserDetails();
+      } else {
+        setIsAuthenticated(false);
+        setUserName('');
+        setUserRole('');
+      }
+    });
+
+    return () => unsubscribe(); // Clean up the subscription on unmount
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -43,8 +74,12 @@ function UserPage() {
 
   return (
     <div className="admin-page">
-      <h1>Admin Dashboard</h1>
-      <p>Welcome, {userName} ({userRole})</p>
+      <h1>User Dashboard</h1>
+      {isAuthenticated ? (
+        <p>Welcome, {userName} ({userRole})</p> // Display the authenticated user's name and role
+      ) : (
+        <p>Please log in to access the user page</p> // Display message when the user is not authenticated
+      )}
       <div className="admin-links">
         <Link to="/candidates" className="admin-link">
           Vote

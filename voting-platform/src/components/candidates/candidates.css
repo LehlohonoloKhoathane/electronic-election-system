@@ -1,13 +1,13 @@
 /* Styling for the Candidates section */
 #candidates {
-  border: 2px red solid;
+  border: 2px #09BE67 solid;
   padding: 20px 10px; /* Reduced padding for better responsiveness */
   background-color: #05052C;
   border-radius: 8px;
   margin-top: 5rem;
   margin-left: 5rem;
   margin-right: 5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(9, 190, 103, 0.2), 0 8px 16px rgba(9, 190, 103, 0.3);
   /* margin: 2rem auto; Centered section with top and bottom margin */
   max-width: 100%; /* Full width for responsiveness */
 }
@@ -33,7 +33,7 @@
   flex-wrap: wrap;
 }
 
-/* Styling for the placeholder text (Loading...) */
+/* Styling for the placeholder text*/
 #candidates-container p {
   font-size: 16px;
   color: white;

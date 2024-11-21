@@ -41,7 +41,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 25px rgba(138, 240, 163, 0.322);
   font-size: 18px;
 }
 
@@ -118,17 +118,17 @@
 .provincial-results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the grid layout to automatically fill columns */
-  gap: 20px; /* Adds space between grid items */
-  padding: 20px; /* Optional: adds padding around the grid */
+  gap: 20px; 
+  padding: 20px; 
 }
 
 .result-item {
-  background-color: #f1f1f1; /* Optional: background color for the grid items */
-  border: 1px solid #ccc; /* Optional: adds a border around the items */
-  padding: 10px; /* Optional: adds padding inside the grid item */
-  border-radius: 5px; /* Optional: rounds the corners */
-  text-align: center; /* Centers the text inside the grid item */
-  font-size: 1.2em; /* Optional: adjust font size */
+  background-color: #f1f1f1; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  border-radius: 5px;
+  text-align: center; 
+  font-size: 1.2em; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
 }
 

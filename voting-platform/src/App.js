@@ -19,6 +19,7 @@ import ManageDatabase from './components/manageDatabase/manageDatabase';
 import ElectionTypeSelector from './components/electionTypeSelector/electionTypeSelector';
 import UserPage from './components/userPage/userPage';
 import Loader from './components/loader/loader';  // Import the Loader component
+import BackToTopButton from './components/scrollArrow/backToTop';
 
 function App() {
   // State to manage loading state
@@ -57,6 +58,7 @@ function App() {
               <ToastContainer />
             </main>
             <footer className="footerApp">
+              <BackToTopButton />
               <Footer />
             </footer>
           </>

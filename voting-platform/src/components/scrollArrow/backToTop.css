@@ -1,0 +1,28 @@
+/* Styles for the back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    background-color: #09BE67;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s;
+    z-index: 9999;
+  }
+
+  /*Hover effect for the button */
+  .back-to-top:hover {
+    opacity: 0.4;
+  }
+
+  /* Styles for the icon inside the button */
+  .icon {
+    font-size: 35px;
+    color: #05052C;
+  }

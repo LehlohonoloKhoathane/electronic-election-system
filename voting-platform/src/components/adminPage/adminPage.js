@@ -24,6 +24,9 @@ function AdminPage() {
         <Link to="/addCandidates" className="admin-link">
           Add Candidates
         </Link>
+        <Link to="/manageDatabase" className="admin-link">
+          Manage Database
+        </Link>
         {/* Add more links to other admin pages as needed */}
       </div>
       <button onClick={handleLogout} className="logout-button">

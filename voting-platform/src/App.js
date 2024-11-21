@@ -14,6 +14,7 @@ import AddCandidates from './components/addCandidates/addCandidates';
 import AddElectionType from './components/addElectionTypes/addElectionTypes';
 import ForgotPassword from './components/forgotPassword/forgotPassword';
 import AdminPage from './components/adminPage/adminPage';
+import ManageDatabase from './components/manageDatabase/manageDatabase';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/adminPage" element={<AdminPage />} />
             <Route path="/candidates" element={<Candidates />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/manageDatabase" element={<ManageDatabase />} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/profile" element={<Profile />} />

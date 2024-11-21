@@ -1,111 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import { db } from '../firebase';
-// import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
-// import Swal from 'sweetalert2';
-// import './manageDatabase.css';
-
-// function ManageDatabase() {
-//   const [candidates, setCandidates] = useState([]);
-//   const [electionTypes, setElectionTypes] = useState([]);
-
-//   useEffect(() => {
-//     // Fetch candidates and election types on component mount
-//     const fetchData = async () => {
-//       try {
-//         const candidatesSnapshot = await getDocs(collection(db, 'Candidates'));
-//         const electionTypesSnapshot = await getDocs(collection(db, 'ElectionTypes'));
-
-//         setCandidates(candidatesSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-//         setElectionTypes(electionTypesSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//         Swal.fire({
-//           icon: 'error',
-//           title: 'Error',
-//           text: 'Failed to fetch data.',
-//         });
-//       }
-//     };
-
-//     fetchData();
-//   }, []);
-
-//   const handleDelete = async (collectionName, id) => {
-//     try {
-//       await deleteDoc(doc(db, collectionName, id));
-//       Swal.fire({
-//         icon: 'success',
-//         title: 'Deleted',
-//         text: `The item has been deleted from ${collectionName}.`,
-//       });
-
-//       // Update the state after deletion
-//       if (collectionName === 'Candidates') {
-//         setCandidates((prev) => prev.filter((item) => item.id !== id));
-//       } else if (collectionName === 'ElectionTypes') {
-//         setElectionTypes((prev) => prev.filter((item) => item.id !== id));
-//       }
-//     } catch (error) {
-//       console.error('Error deleting item:', error);
-//       Swal.fire({
-//         icon: 'error',
-//         title: 'Error',
-//         text: 'Failed to delete the item.',
-//       });
-//     }
-//   };
-
-//   return (
-//     <div className="manage-database">
-//       <h2>Manage Database</h2>
-
-//       <div className="data-section">
-//         <h3>Candidates</h3>
-//         {candidates.length > 0 ? (
-//           <ul>
-//             {candidates.map((candidate) => (
-//               <li key={candidate.id}>
-//                 <strong>{candidate.FullNames}</strong> ({candidate.party})
-//                 <button
-//                   className="delete-button"
-//                   onClick={() => handleDelete('Candidates', candidate.id)}
-//                 >
-//                   Delete
-//                 </button>
-//               </li>
-//             ))}
-//           </ul>
-//         ) : (
-//           <p>No candidates found.</p>
-//         )}
-//       </div>
-
-//       <div className="data-section">
-//         <h3>Election Types</h3>
-//         {electionTypes.length > 0 ? (
-//           <ul>
-//             {electionTypes.map((type) => (
-//               <li key={type.id}>
-//                 <strong>{type.electionName}</strong> (End Date: {type.electionEndDate})
-//                 <button
-//                   className="delete-button"
-//                   onClick={() => handleDelete('ElectionTypes', type.id)}
-//                 >
-//                   Delete
-//                 </button>
-//               </li>
-//             ))}
-//           </ul>
-//         ) : (
-//           <p>No election types found.</p>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default ManageDatabase;
-
 import React, { useState, useEffect } from 'react';
 import { db, auth } from '../firebase';
 import { collection, getDocs, deleteDoc, doc, getDoc } from 'firebase/firestore';
@@ -197,8 +89,8 @@ function ManageDatabase() {
       text: 'This action cannot be undone!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, keep it',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
     });
 
     if (result.isConfirmed) {
@@ -244,7 +136,7 @@ function ManageDatabase() {
               <ul>
                 {candidates.map((candidate) => (
                   <li className='candidateD' key={candidate.id}>
-                    <strong>{candidate.FullNames}</strong> ({candidate.party})
+                    <strong>{candidate.FullNames}</strong> {candidate.Party}
                     <button
                       className="delete-button"
                       onClick={() => handleDelete('Candidates', candidate.id)}
@@ -265,7 +157,7 @@ function ManageDatabase() {
               <ul>
                 {electionTypes.map((type) => (
                   <li className='electionD' key={type.id}>
-                    <strong>{type.electionName}</strong> (End Date: {type.electionEndDate})
+                    <strong>{type.electionName}</strong> End Date: {type.electionEndDate}
                     <button
                       className="delete-button"
                       onClick={() => handleDelete('ElectionTypes', type.id)}

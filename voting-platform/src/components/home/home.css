@@ -1,11 +1,13 @@
 .home-container{
-  padding: 20px;
+  padding: 10px;
+  padding-top: 0px;
   overflow: hidden;
+  margin-top: 0rem;
   margin: 4rem;
   background-color: #05052C;
   max-width: fit-content;
   border-radius: 10px;
-  
+  border: #09BE67 2px solid;
 }
 
 .paragraph-container{

@@ -37,6 +37,8 @@
 /* Styling for links */
 .nav-links a {
   color: white;
+  cursor: pointer;
+  display: block;
   text-decoration: none; /* Remove underline */
   font-weight: normal; /* Normal weight for links */
   transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth transition */
@@ -45,7 +47,7 @@
 /* Hover effects for links */
 .nav-links a:hover {
   color: #09BE67; /* Change color to blue on hover */
-  font-weight: bold; /* Make the text bold on hover */
+  /* font-weight: bold; Make the text bold on hover */
 }
 
 /* Hamburger menu */

@@ -44,12 +44,12 @@ function Login() {
                 if (role === 'admin') {
                     navigate('/adminPage');  // Admin redirects to add candidates page
                 } else {
-                    navigate('/candidates');  // Regular user redirects to candidates page
+                    navigate('/userPage');  // Regular user redirects to candidates page
                 }
             } else {
                 // Handle case where user does not have a role assigned
                 console.log("No role found for the user");
-                navigate('/candidates');  // Redirect to candidates page if no role
+                navigate('/userPage');  // Redirect to candidates page if no role
             }
 
         } catch (error) {

@@ -2,10 +2,13 @@
 #candidates {
   border: 2px red solid;
   padding: 20px 10px; /* Reduced padding for better responsiveness */
-  background-color: #fafafa;
+  background-color: #05052C;
   border-radius: 8px;
+  margin-top: 5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 2rem auto; /* Centered section with top and bottom margin */
+  /* margin: 2rem auto; Centered section with top and bottom margin */
   max-width: 100%; /* Full width for responsiveness */
 }
 
@@ -88,7 +91,9 @@
 @media screen and (max-width: 768px) {
   #candidates {
       padding: 15px; /* Reduced padding */
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
   }
 
   #candidates h2 {
@@ -115,6 +120,8 @@
   #candidates {
       padding: 10px;
       margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
   }
 
   #candidates h2 {

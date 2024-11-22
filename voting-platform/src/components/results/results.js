@@ -1,7 +1,7 @@
 import './results.css';
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase'; // Importing firebase instance
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore'; // Using `onSnapshot` for real-time updates
 import { toast } from 'react-toastify';
 
 function Results() {
@@ -12,11 +12,11 @@ function Results() {
   const [provincialData, setProvincialData] = useState({}); // To store provincial data
 
   useEffect(() => {
-    // Fetch candidates and their votes
-    const fetchCandidates = async () => {
-      try {
-        const candidatesSnapshot = await getDocs(collection(db, 'Candidates'));
-        const candidatesData = candidatesSnapshot.docs.map(doc => ({
+    // Real-time listener for candidates
+    const unsubscribeCandidates = onSnapshot(
+      collection(db, 'Candidates'),
+      (snapshot) => {
+        const candidatesData = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
         }));
@@ -25,17 +25,18 @@ function Results() {
         const votesSum = candidatesData.reduce((sum, candidate) => sum + (candidate.Votes || 0), 0);
         setCandidates(candidatesData);
         setTotalVotes(votesSum);
-      } catch (error) {
+      },
+      (error) => {
         console.error('Error fetching candidates: ', error);
         toast.error('Failed to load candidates');
       }
-    };
+    );
 
-    // Fetch total users and voters count by province
-    const fetchUsersData = async () => {
-      try {
-        const usersSnapshot = await getDocs(collection(db, 'Users'));
-        const usersData = usersSnapshot.docs.map(doc => doc.data());
+    // Real-time listener for users
+    const unsubscribeUsers = onSnapshot(
+      collection(db, 'Users'),
+      (snapshot) => {
+        const usersData = snapshot.docs.map(doc => doc.data());
 
         setTotalUsers(usersData.length); // Total registered users
 
@@ -73,14 +74,18 @@ function Results() {
         }
 
         setProvincialData(provincialResults);
-      } catch (error) {
+      },
+      (error) => {
         console.error('Error fetching users data: ', error);
         toast.error('Failed to load users data');
       }
-    };
+    );
 
-    fetchCandidates();
-    fetchUsersData();
+    // Cleanup listeners on unmount
+    return () => {
+      unsubscribeCandidates();
+      unsubscribeUsers();
+    };
   }, []);
 
   // Function to determine the color of the progress bar based on percentage

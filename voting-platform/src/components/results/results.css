@@ -210,6 +210,10 @@
     font-size: 1em; /* Reduce font size */
     padding: 8px; /* Reduced padding */
   }
+
+  .category-nav button{
+    margin: 5px;
+  }
 }
 
 /* For very small screens (Phones under 480px) */
@@ -242,5 +246,9 @@
   .result-item {
     font-size: 0.9em; /* Even smaller font size */
     padding: 6px; /* Further reduced padding */
+  }
+
+  .category-nav button{
+    margin: 5px;
   }
 }

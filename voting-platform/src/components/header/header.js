@@ -6,6 +6,7 @@ import { auth, db } from '../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { TfiMenuAlt } from "react-icons/tfi";
 import { MdCancelPresentation } from "react-icons/md"; // Import cancel button
+import Swal from 'sweetalert2'; // Import SweetAlert for notifications
 
 function Header() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,22 +18,35 @@ function Header() {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setIsAuthenticated(true);
-                const fetchUserDetails = async () => {
-                    try {
-                        const userRef = doc(db, 'Users', user.uid);
-                        const userDoc = await getDoc(userRef);
-                        if (userDoc.exists()) {
-                            const userData = userDoc.data();
-                            setUserName(userData.firstName || 'User');
-                            setUserRole(userData.role || 'user');
+                if (user.emailVerified) { // Check if email is verified
+                    setIsAuthenticated(true);
+                    const fetchUserDetails = async () => {
+                        try {
+                            const userRef = doc(db, 'Users', user.uid);
+                            const userDoc = await getDoc(userRef);
+                            if (userDoc.exists()) {
+                                const userData = userDoc.data();
+                                setUserName(userData.firstName || 'User');
+                                setUserRole(userData.role || 'user');
+                            }
+                        } catch (error) {
+                            console.error('Error fetching user details:', error);
                         }
-                    } catch (error) {
-                        console.error('Error fetching user details:', error);
-                    }
-                };
+                    };
 
-                fetchUserDetails();
+                    fetchUserDetails();
+                } else {
+                    // If email is not verified, set authentication status to false
+                    setIsAuthenticated(false);
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Please verify your email',
+                        text: 'You need to verify your email address to proceed.',
+                    }).then(() => {
+                        signOut(auth); // Sign out user if email is not verified
+                        navigate('/login'); // Redirect to login page
+                    });
+                }
             } else {
                 setIsAuthenticated(false);
                 setUserName('');
@@ -41,7 +55,7 @@ function Header() {
         });
 
         return () => unsubscribe();
-    }, []);
+    }, [navigate]);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen); // Toggle menu state on small screens
@@ -66,9 +80,7 @@ function Header() {
                 <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
                     {isAuthenticated ? (
                         userRole === 'admin' ? (
-                            <>
-                                <li><Link to="/adminPage" onClick={closeMenu}>Admin Page</Link></li>
-                            </>
+                            <li><Link to="/adminPage" onClick={closeMenu}>Admin Page</Link></li>
                         ) : (
                             <>
                                 <li><Link to="/userPage" onClick={closeMenu}>Dashboard</Link></li>

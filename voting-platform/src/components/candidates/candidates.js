@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
@@ -70,6 +69,7 @@ function Candidates() {
             return;
         }
 
+        // Notify if the user has already voted
         if (votedStatus[ballotType]) {
             Swal.fire({
                 icon: 'info',
@@ -171,7 +171,7 @@ function Candidates() {
                         className={activeCategory === category ? 'active' : ''}
                         onClick={() => setActiveCategory(category)}
                     >
-                        {category} Results
+                        {category} Vote
                     </button>
                 ))}
             </div>
@@ -185,7 +185,7 @@ function Candidates() {
                             {candidate.Images && (
                                 <img
                                     src={candidate.Images}
-                                    alt={`Pictur of ${candidate.FullNames}`}
+                                    alt={`Picture of ${candidate.FullNames}`}
                                     className="candidate-image"
                                 />
                             )}
@@ -196,7 +196,6 @@ function Candidates() {
                                 <button
                                     className="vote-button"
                                     onClick={() => handleVote(candidate.id, candidate.FullNames, activeCategory)}
-                                    disabled={votedStatus[activeCategory]}
                                 >
                                     Vote for {activeCategory}
                                 </button>

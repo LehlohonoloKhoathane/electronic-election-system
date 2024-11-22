@@ -33,6 +33,9 @@ You may also see any lint errors in the console.
 ## Database Access  
 I have added your emails as admin in my firebase
 
+# Deployed linkd :
+https://onlinevoting-9d6a1.web.app
+
 ## Default Admin Login Details
 **Email Address:** admin@gmail.com
 **Password:** admin1234

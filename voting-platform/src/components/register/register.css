@@ -57,7 +57,7 @@ select:focus {
 
 input:focus,
 select:focus {
-    border-color: #09BE67; /* Highlight color when focused */
+    border-color: #fff; /* Highlight color when focused */
     outline: none; /* Removes default outline */
 }
 
@@ -82,7 +82,7 @@ select:focus {
 .error {
     color: #d9534f; /* Red color for error messages */
     font-size: 0.875rem;
-    margin-top: -1rem;
+    margin-top: 0.5rem;
 }
 
 /* Media Queries for smaller screens */

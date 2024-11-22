@@ -48,7 +48,7 @@ const Home = () => {
       cancelButtonText: 'Close',
     }).then((result) => {
       if (result.isConfirmed) {
-        navigate('/login'); // Redirect to the login page
+        navigate('/register'); // Redirect to the login page
       }
     });
   };

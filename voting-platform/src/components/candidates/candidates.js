@@ -1,7 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-import { collection, onSnapshot, doc, updateDoc, increment, getDoc } from 'firebase/firestore';
+import { collection, onSnapshot, doc, updateDoc, increment, getDoc, setDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2'; // Import Swal for alerts
 import './candidates.css';
 
@@ -9,14 +10,15 @@ function Candidates() {
     const [candidates, setCandidates] = useState([]);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
-    const [hasVoted, setHasVoted] = useState(false);
+    const [votedStatus, setVotedStatus] = useState({ Provincial: false, Regional: false, National: false });
+    const [activeCategory, setActiveCategory] = useState('Provincial'); // Set initial category to Provincial
     const navigate = useNavigate();
 
     useEffect(() => {
         const unsubscribeAuth = auth.onAuthStateChanged((currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
-                checkIfUserVoted(currentUser.uid);
+                initializeUserVoteStatus(currentUser.uid);
             } else {
                 navigate('/login');
             }
@@ -37,21 +39,26 @@ function Candidates() {
         };
     }, [navigate]);
 
-    const checkIfUserVoted = async (userId) => {
+    const initializeUserVoteStatus = async (userId) => {
         try {
-            const userDoc = doc(db, 'Users', userId);
-            const userSnapshot = await getDoc(userDoc);
+            const userDocRef = doc(db, 'Users', userId);
+            const userSnapshot = await getDoc(userDocRef);
 
             if (userSnapshot.exists()) {
-                const userData = userSnapshot.data();
-                setHasVoted(userData.Voted || false);
+                setVotedStatus(userSnapshot.data().Voted || { Provincial: false, Regional: false, National: false });
+            } else {
+                // Create default vote status for the new user
+                await setDoc(userDocRef, {
+                    Voted: { Provincial: false, Regional: false, National: false },
+                });
+                setVotedStatus({ Provincial: false, Regional: false, National: false });
             }
         } catch (error) {
-            console.error('Error checking user vote status:', error);
+            console.error('Error initializing user vote status:', error);
         }
     };
 
-    const handleVote = async (candidateId, candidateName) => {
+    const handleVote = async (candidateId, candidateName, ballotType) => {
         if (!user) {
             Swal.fire({
                 icon: 'error',
@@ -63,11 +70,11 @@ function Candidates() {
             return;
         }
 
-        if (hasVoted) {
+        if (votedStatus[ballotType]) {
             Swal.fire({
                 icon: 'info',
                 title: 'Already Voted',
-                text: 'You have already voted.',
+                text: `You have already voted for the ${ballotType} ballot.`,
                 timer: 2000,
                 showConfirmButton: false,
             });
@@ -75,7 +82,7 @@ function Candidates() {
         }
 
         const confirmVote = await Swal.fire({
-            title: `Confirm Your Vote`,
+            title: `Confirm Your ${ballotType} Vote`,
             text: `Are you sure you want to vote for ${candidateName}?`,
             icon: 'question',
             showCancelButton: true,
@@ -85,22 +92,25 @@ function Candidates() {
 
         if (confirmVote.isConfirmed) {
             try {
+                // Update candidate's vote count for the ballot
                 const candidateRef = doc(db, 'Candidates', candidateId);
                 await updateDoc(candidateRef, {
-                    Votes: increment(1),
+                    [`Votes.${ballotType}`]: increment(1),
                 });
 
+                // Update user's vote status for the ballot
                 const userRef = doc(db, 'Users', user.uid);
                 await updateDoc(userRef, {
-                    Voted: true,
+                    [`Voted.${ballotType}`]: true,
                 });
 
-                setHasVoted(true);
+                // Update local state
+                setVotedStatus((prev) => ({ ...prev, [ballotType]: true }));
 
                 Swal.fire({
                     icon: 'success',
                     title: 'Vote Cast',
-                    text: `You have successfully voted for ${candidateName}!`,
+                    text: `You have successfully voted for ${candidateName} on the ${ballotType} ballot!`,
                     timer: 3000,
                     showConfirmButton: false,
                 });
@@ -152,6 +162,20 @@ function Candidates() {
     return (
         <section id="candidates">
             <h2>Meet the Candidates</h2>
+
+            {/* Category Navigation */}
+            <div className="category-nav">
+                {['Provincial', 'Regional', 'National'].map((category) => (
+                    <button
+                        key={category}
+                        className={activeCategory === category ? 'active' : ''}
+                        onClick={() => setActiveCategory(category)}
+                    >
+                        {category} Results
+                    </button>
+                ))}
+            </div>
+
             <div id="candidates-container">
                 {loading ? (
                     <p>Loading candidate information...</p>
@@ -170,16 +194,17 @@ function Candidates() {
                             <p>{candidate.Description}</p>
                             <div className="cButtons">
                                 <button
-                                    className="viewManifesto"
+                                    className="vote-button"
+                                    onClick={() => handleVote(candidate.id, candidate.FullNames, activeCategory)}
+                                    disabled={votedStatus[activeCategory]}
+                                >
+                                    Vote for {activeCategory}
+                                </button>
+                                <button
+                                    className="view-manifesto-button"
                                     onClick={() => handleViewManifesto(candidate.id)}
                                 >
                                     View Manifesto
-                                </button>
-                                <button
-                                    className="voting"
-                                    onClick={() => handleVote(candidate.id, candidate.FullNames)}
-                                >
-                                    Vote
                                 </button>
                             </div>
                         </div>

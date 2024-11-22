@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/
 import { auth, db } from '../firebase';
 import { setDoc, doc, getDocs, collection, query, where } from 'firebase/firestore';
 import Swal from 'sweetalert2'; // Import SweetAlert2
+import { Link } from 'react-router-dom';
 
 function Register() {
     const [email, setEmail] = useState('');
@@ -200,6 +201,9 @@ function Register() {
                 </div>
                 {error && <p className="error">{error}</p>}
                 <button className='register-button' type="submit">Register</button>
+                <Link to="/login" className="forgot-password-link">
+                    Already have an account?
+                </Link>
             </form>
         </section>
     );

@@ -123,7 +123,7 @@
   }
 
   .nav-links li {
-      font-size: 18px;
+      font-size: 20px;
       text-align: left;
   }
 }
@@ -135,10 +135,10 @@
   }
 
   .nav-links li {
-      font-size: 16px;
+      font-size: 22px;
   }
 
   .nav-links {
-      gap: 5px;
+      gap: 10px;
   }
 }
